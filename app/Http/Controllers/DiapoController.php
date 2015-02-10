@@ -40,10 +40,11 @@ class DiapoController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  int  $moduleId
+	 * @param  int  $diapoId
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($moduleId, $diapoId)
 	{
 		//
 	}

@@ -2,11 +2,12 @@
 
 namespace LearnerApi;
 
+use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model {
-	protected $timestamps = false;
+	public $timestamps = false;
 
 	protected $table = 'modules';
 
-	protected $fillable = ['titre', 'description', 'img'];
+	protected $fillable = ['title', 'description', 'img'];
 }
