@@ -49,3 +49,12 @@ class ModuleTableSeeder extends Seeder {
 	}
 
 }
+
+class DiapoTableSeeder extends Seeder {
+
+	public function run()
+	{
+		DB::table('diapos')->delete();
+
+	}
+}

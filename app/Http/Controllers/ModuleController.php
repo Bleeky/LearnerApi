@@ -25,6 +25,7 @@ class ModuleController extends Controller {
 	 */
 	public function create()
 	{
+
 	}
 
 	/**
@@ -79,6 +80,7 @@ class ModuleController extends Controller {
 	 */
 	public function destroy($id)
 	{
+
 		//
 	}
 
