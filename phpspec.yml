@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: LearnerApi
+        psr4_prefix: LearnerApi
+        src_path: app
