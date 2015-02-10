@@ -5,7 +5,7 @@ use LearnerApi\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ModulesController extends Controller {
+class ModuleController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
