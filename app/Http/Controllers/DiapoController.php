@@ -4,9 +4,8 @@ use LearnerApi\Http\Requests;
 use LearnerApi\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use LearnerApi\Module;
 
-class ModuleController extends Controller {
+class DiapoController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ModuleController extends Controller {
 	 */
 	public function index()
 	{
-		return Response::json(['status' => 200, 'modules' => Module::all()
-		]);
+		//
 	}
 
 	/**
@@ -26,6 +24,7 @@ class ModuleController extends Controller {
 	 */
 	public function create()
 	{
+		//
 	}
 
 	/**
@@ -41,11 +40,10 @@ class ModuleController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int $moduleId
-	 * @param  int $diapoId
+	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($moduleId, $diapoId)
+	public function show($id)
 	{
 		//
 	}
@@ -53,7 +51,7 @@ class ModuleController extends Controller {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int $id
+	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
@@ -64,7 +62,7 @@ class ModuleController extends Controller {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int $id
+	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
@@ -75,7 +73,7 @@ class ModuleController extends Controller {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int $id
+	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
