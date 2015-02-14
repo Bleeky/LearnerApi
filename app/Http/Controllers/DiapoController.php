@@ -9,18 +9,22 @@ class DiapoController extends Controller {
 
 	public function next($diapoId)
 	{
-		return Response::json(['status' => 200, 'module' => Module::find($id)
+		$current = Diapo::find($diapoId);
+		return Response::json(['status' => 200, 'module' => Diapo::find($current->next)
 		]);
 	}
 
 	public function prev($diapoId)
 	{
-
+		$current = Diapo::find($diapoId);
+		return Response::json(['status' => 200, 'module' => Diapo::find($current->prev)
+		]);
 	}
 
 	public function first($moduleId)
 	{
-		return 'YEAH !';
+		return Response::json(['status' => 200, 'module' => Diapo::where('module_id', '=', $moduleId)->where('prev_id', '=', '0')
+		]);
 	}
 
 }

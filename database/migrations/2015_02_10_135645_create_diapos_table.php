@@ -18,9 +18,9 @@ class CreateDiaposTable extends Migration {
 			$table->text('content');
 			$table->integer('module_id')->unsigned();
 			$table->foreign('module_id')->references('id')->on('modules');
-			$table->integer('prev_id')->unsigned();
+			$table->integer('prev_id')->unsigned()->nullable();
 			$table->foreign('prev_id')->references('id')->on('diapos');
-			$table->integer('next_id')->unsigned();
+			$table->integer('next_id')->unsigned()->nullable();
 			$table->foreign('next_id')->references('id')->on('diapos');
 		});
 	}
