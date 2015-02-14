@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+var gulp = require("gulp");
 
 /*
  |--------------------------------------------------------------------------
@@ -10,7 +11,24 @@ var elixir = require('laravel-elixir');
  | file for our application, as well as publishing vendor resources.
  |
  */
+var paths = {
+    'bootstrap': './node_modules/bootstrap-sass/assets/',
+    'font_awesome': './node_modules/font-awesome/',
+    'jquery': './node_modules/jquery/dist/'
+}
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.sass(['app.scss', 'bootstrap.scss', 'font-awesome.scss'], 'public/css/', {includePaths: [paths.bootstrap + 'stylesheets/', paths.font_awesome + 'scss/']})
+        .copy(paths.font_awesome + 'fonts', "./public/fonts/")
+        .copy(paths.bootstrap + 'fonts', "./public/fonts/")
+        .copy(paths.jquery + "jquery.min.map", "./public/js/jquery.min.map")
+        .styles(['bootstrap.css', 'font-awesome.css'], 'public/css/dependencies.css', 'public/css')
+        .scripts(
+        [
+            'jquery/dist/jquery.js',
+            'bootstrap-sass/assets/javascripts/bootstrap.js'
+        ],
+        'public/js/dependencies.min.js',
+        'node_modules'
+    )
 });

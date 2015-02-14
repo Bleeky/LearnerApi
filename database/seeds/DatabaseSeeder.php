@@ -52,28 +52,28 @@ class ModuleTableSeeder extends Seeder {
 						'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
 
-		$lol = Module::create(['title'       => 'Baguette',
-						'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper erat egestas at. Integer vel lobortis velit, eget eleifend ex. Suspendisse vel mi fringilla tortor dictum pharetra. Curabitur lacinia vel libero a lacinia. Aliquam rhoncus tellus vitae est placerat, in commodo magna porta',
-						'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
+		$module = Module::create(['title'       => 'Baguette',
+								  'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper erat egestas at. Integer vel lobortis velit, eget eleifend ex. Suspendisse vel mi fringilla tortor dictum pharetra. Curabitur lacinia vel libero a lacinia. Aliquam rhoncus tellus vitae est placerat, in commodo magna porta',
+								  'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
 
-		Diapo::create(['content'   => '<content><type>1</type><text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</text><img>https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg</img></content>',
-					   'module_id' => $lol->id,
+		$diapo1 = Diapo::create(['content'   => '<content><type>1</type><text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</text><img>https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg</img></content>',
+								 'module_id' => $module->id,
 		]);
+		$diapo2 = Diapo::create(['content'   => '<content><type>2</type><text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</text><img>https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg</img></content>',
+								 'module_id' => $module->id,
+								 'prev_id'   => $diapo1->id,
+		]);
+		$diapo1->next_id = $diapo2->id;
+		$diapo1->save();
+
+		$diapo3 = Diapo::create(['content'   => '<content><type>1</type><text>La vie en rose baguette</text><img>https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg</img></content>',
+								 'module_id' => $module->id,
+								 'prev_id'   => $diapo2->id,
+		]);
+		$diapo2->next_id = $diapo3->id;
+		$diapo2->save();
 
 	}
 
-}
-
-class DiapoTableSeeder extends Seeder {
-
-	public function run()
-	{
-		DB::table('diapos')->delete();
-		Diapo::create(['content'   => '<type>1</type><text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</text>',
-					   'module_id' => DB::table('modules')->where('title', '=', 'Baguette'),
-					   'prev_id'   => '0',
-					   'next_id'   => '0'
-		]);
-	}
 }

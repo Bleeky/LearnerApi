@@ -2,8 +2,10 @@
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Contracts\Routing\Middleware;
 
-class Authenticate {
+class Authenticate implements Middleware {
 
 	/**
 	 * The Guard implementation.
@@ -32,18 +34,12 @@ class Authenticate {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->guest())
-		{
-			if ($request->ajax())
-			{
-				return response('Unauthorized.', 401);
-			}
-			else
-			{
-				return redirect()->guest('auth/login');
-			}
+		if (!$this->auth->check()) {
+			return Redirect::action('AuthenticationController@getIndex')
+				->withErrors([
+					'error' => 'You are not logged in. You cannot go there !'
+				]);
 		}
-
 		return $next($request);
 	}
 
