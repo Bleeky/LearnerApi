@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
 use LearnerApi\Module;
+use LearnerApi\Diapo;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder {
 
@@ -55,6 +57,10 @@ class DiapoTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::table('diapos')->delete();
-
+		Diapo::create(['content'   => '<type>1</type><text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</text>',
+					   'module_id' => DB::table('modules')->where('title', '=', 'Baguette'),
+					   'prev_id'   => '0',
+					   'next_id'   => '0'
+		]);
 	}
 }
