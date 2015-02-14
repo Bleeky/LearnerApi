@@ -1,7 +1,12 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Quoc-Khai
- * Date: 14/02/15
- * Time: 20:07
- */
+<!DOCTYPE html>
+<html>
+<head>
+    @include('common.header')
+</head>
+<body>
+<div class="page-container">
+    @yield('content')
+</div>
+@include('common.footer')
+</body>
+</html>
