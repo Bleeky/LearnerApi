@@ -12,6 +12,6 @@ class AdminController extends Controller {
 
 	public function getIndex()
 	{
-		return 'JE SUIS DANS ADMIN !';
+		return view('home');
 	}
 }

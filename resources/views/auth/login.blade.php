@@ -1,7 +1,16 @@
-@extends('layouts.default')
+<!DOCTYPE html>
+<title>Learner</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@section('content')
-    <div class="container-fluid">
+{{--<link rel="icon" href="{{ asset('ressources/assets/ico.png') }}"/>--}}
+
+{!! HTML::style('css/dependencies.css') !!}
+{!! HTML::style('css/app.css') !!}
+
+{!! HTML::script('js/dependencies.min.js') !!}
+
+<div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -51,4 +60,3 @@
             </div>
         </div>
     </div>
-@stop

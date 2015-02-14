@@ -60,17 +60,32 @@ class ModuleTableSeeder extends Seeder {
 								  'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
 
-		$diapo1 = Diapo::create(['content'   => '<content><type>1</type><text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</text><img>https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg</img></content>',
+		$diapo1 = Diapo::create(['content'   => 'content = [{
+		type: "1",
+	data: "Lorem ipsum dolor sit amet",
+	img: "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"
+	}
+]',
 								 'module_id' => $module->id,
 		]);
-		$diapo2 = Diapo::create(['content'   => '<content><type>2</type><text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</text><img>https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg</img></content>',
+		$diapo2 = Diapo::create(['content'   => 'content = [{
+		type: "2",
+	data: "Lorem ipsum dolor sit amet",
+	img: "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"
+	}
+]',
 								 'module_id' => $module->id,
 								 'prev_id'   => $diapo1->id,
 		]);
 		$diapo1->next_id = $diapo2->id;
 		$diapo1->save();
 
-		$diapo3 = Diapo::create(['content'   => '<content><type>1</type><text>La vie en rose baguette</text><img>https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg</img></content>',
+		$diapo3 = Diapo::create(['content'   => 'content = [{
+		type: "1",
+	data: "Lorem ipsum dolor sit amet",
+	img: "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"
+	}
+]',
 								 'module_id' => $module->id,
 								 'prev_id'   => $diapo2->id,
 		]);
