@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use LearnerApi\Module;
 use LearnerApi\Diapo;
 use Illuminate\Support\Facades\DB;
+use LearnerApi\User;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder {
 
@@ -19,6 +21,7 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		$this->call('ModuleTableSeeder');
+		$this->call('UserTableSeeder');
 		$this->command->info('Database seeded.');
 	}
 }
@@ -76,4 +79,12 @@ class ModuleTableSeeder extends Seeder {
 
 	}
 
+}
+
+class UserTableSeeder extends Seeder {
+
+	public function run()
+	{
+		User::create(['username' => 'john', 'password' => Hash::make('test')]);
+	}
 }
