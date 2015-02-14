@@ -34,4 +34,12 @@ class AuthenticationController extends Controller {
 				'error' => 'Wrong credentials, try again !',
 			]);
 	}
+
+	public function getLogout()
+	{
+		$this->auth->logout();
+
+		return Redirect::action('AuthenticationController@getIndex');
+	}
+
 }
