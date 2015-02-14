@@ -9,4 +9,9 @@ class AuthenticationController extends Controller {
 	{
 		return view('auth.login');
 	}
+
+	public function postAuthenticate()
+	{
+
+	}
 }
