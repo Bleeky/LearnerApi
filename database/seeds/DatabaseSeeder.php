@@ -42,7 +42,7 @@ class ModuleTableSeeder extends Seeder {
 						'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
 
-		Module::create(['title'       => 'JAI PAS IMAGE .',
+		Module::create(['title'       => 'JAI PAS IMAGE.',
 						'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper erat egestas at. Integer vel lobortis velit, eget eleifend ex. Suspendisse vel mi fringilla tortor dictum pharetra. Curabitur lacinia vel libero a lacinia. Aliquam rhoncus tellus vitae est placerat, in commodo magna porta',
 		]);
 
