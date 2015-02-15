@@ -23,7 +23,7 @@ class DiapoController extends Controller {
 
 	public function first($moduleId)
 	{
-		return Response::json(['status' => 200, 'diapo' => Diapo::where('module_id', '=', $moduleId)->where('prev_id', '=', null)->get()
+		return Response::json(['status' => 200, 'diapo' => Diapo::where('module_id', '=', $moduleId)->where('prev_id', '=', null)->first()
 		]);
 	}
 
