@@ -10,3 +10,5 @@ Thumbs.db
 /bower_components
 /config/
 /node_modules
+public/resources/modules/*
+public/resources/diapos/*
