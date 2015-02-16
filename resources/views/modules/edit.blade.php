@@ -17,6 +17,10 @@
     </div>
 
     <div class="container">
+        @if ($module->img)
+            {!! HTML::image($module->img, null, (['class' => 'img-responsive img-rounded', 'style' =>
+            'max-height: 300px; margin-right: auto; margin-left: auto;'])) !!}
+        @endif
 
         {!! Form::open(['action'=>'ModuleAdminController@postUpdateModule', 'id'=>'module-infos',
         'class'=>'admin-form', 'files'=>'true']) !!}

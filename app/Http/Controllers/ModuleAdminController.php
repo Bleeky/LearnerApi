@@ -42,4 +42,11 @@ class ModuleAdminController extends AdminController {
 
 		return view('modules.edit')->with('module', Module::find($request['module-id']))->withErrors(['success' => 'Module updated with success.']);
 	}
+
+	public function getDeleteModule($id)
+	{
+		Module::find($id)->delete();
+
+		return view('modules.module')->with('modules', Module::all());
+	}
 }
