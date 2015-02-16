@@ -10,6 +10,7 @@ Route::group(['prefix' => 'api'], function ()
 
 Route::controllers([
 	'/login' => 'AuthenticationController',
+	'/admin/diapos' => 'DiapoAdminController',
 	'/admin/modules' => 'ModuleAdminController',
 	'/admin' => 'AdminController'
 ]);

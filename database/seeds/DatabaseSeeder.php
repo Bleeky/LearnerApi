@@ -32,7 +32,7 @@ class ModuleTableSeeder extends Seeder {
 	{
 		DB::table('modules')->delete();
 
-		Module::create(['title'       => 'JE SUIS UN TITRE DE TEST',
+		$module = Module::create(['title'       => 'JE SUIS UN TITRE DE TEST',
 						'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper erat egestas at. Integer vel lobortis velit, eget eleifend ex. Suspendisse vel mi fringilla tortor dictum pharetra. Curabitur lacinia vel libero a lacinia. Aliquam rhoncus tellus vitae est placerat, in commodo magna porta',
 						'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
@@ -55,7 +55,7 @@ class ModuleTableSeeder extends Seeder {
 						'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
 
-		$module = Module::create(['title'       => 'Baguette',
+		Module::create(['title'       => 'Baguette',
 								  'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper erat egestas at. Integer vel lobortis velit, eget eleifend ex. Suspendisse vel mi fringilla tortor dictum pharetra. Curabitur lacinia vel libero a lacinia. Aliquam rhoncus tellus vitae est placerat, in commodo magna porta',
 								  'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
