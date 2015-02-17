@@ -43,5 +43,6 @@
         =>
         'btn btn-success'])!!}
         {!! Form::close() !!}
+    </div>
 
 @stop
