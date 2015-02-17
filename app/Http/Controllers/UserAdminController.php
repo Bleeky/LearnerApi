@@ -8,7 +8,7 @@ class UserAdminController extends AdminController {
 
 	public function getIndex()
 	{
-		return view('users.users')->with('users', User::all());
+		return view('users.home')->with('users', User::all());
 	}
 
 	public function postEditUser()

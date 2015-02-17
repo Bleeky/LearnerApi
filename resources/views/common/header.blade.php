@@ -9,3 +9,5 @@
 {!! HTML::style('css/app.css') !!}
 
 {!! HTML::script('js/dependencies.min.js') !!}
+{!! HTML::script('js/bootbox.min.js') !!}
+{!! HTML::script('js/learner.min.js') !!}
