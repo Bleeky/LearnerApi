@@ -13,16 +13,29 @@ class UserAdminController extends AdminController {
 
 	public function postEditUser()
 	{
+		$User = new User;
+		$User->username = Str::random($lenght = 10);
+		$User->password = Hash::make('default');
+		$User->Save();
+
+		return view('users.users')->with('users', User::orderBy('username', 'desc')->get());
 
 	}
 
 	public function postDeleteUser()
 	{
+		User::find(Input::get('id'))->delete();
 
+		return view('users.users')->with('users', User::orderBy('username', 'desc')->get());
 	}
 
 	public function getAddUser()
 	{
+		$User = User::find(Input::get('id'));
+		$User->username = Input::get('username');
+		$User->password = Hash::make(Input::get('password'));
+		$User->save();
 
+		return view('users.users')->with('users', User::orderBy('username', 'desc')->get());
 	}
 }
