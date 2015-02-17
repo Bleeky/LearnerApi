@@ -22,7 +22,7 @@
                             </br>
                         @endif
                         {!! $elem['id']!!}
-                        <a style="text-decoration: none;" class="btn btn-success" href="{{ URL::action('DiapoAdminController@getEditDiapo', [$elem['id']]) }}">Éditer</a>
+                        <a style="text-decoration: none;" class="btn btn-warning" href="{{ URL::action('DiapoAdminController@getEditDiapo', [$elem['id']]) }}">Éditer</a>
                         <a style="text-decoration: none;" class="btn btn-danger" href="{{ URL::action('DiapoAdminController@getDeleteDiapo', [$elem['id']]) }}">Supprimer</a>
                     </div>
                 </div>

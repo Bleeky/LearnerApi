@@ -12,7 +12,8 @@
                     @endif
                     <a style="text-decoration: none;" class="btn btn-success"
                        href="{{ URL::action('ModuleAdminController@getEditModule', [$module->id]) }}">Editer</a>
-                    <a style="text-decoration: none;" class="btn btn-success" href="{{ URL::action('DiapoAdminController@getHome', [$module->id]) }}">Diapos</a>
+                    <a style="text-decoration: none;" class="btn btn-warning" href="{{ URL::action('DiapoAdminController@getHome', [$module->id]) }}">Diapos</a>
+                    <a style="text-decoration: none;" class="btn btn-danger" href="{{ URL::action('ModuleAdminController@getDeleteModule', [$module->id]) }}">Delete</a>
                 </div>
             </div>
         @endforeach

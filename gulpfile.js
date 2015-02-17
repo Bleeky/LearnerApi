@@ -23,6 +23,8 @@ elixir(function(mix) {
         .copy(paths.bootstrap + 'fonts', "./public/fonts/")
         .copy(paths.jquery + "jquery.min.map", "./public/js/jquery.min.map")
         .styles(['bootstrap.css', 'font-awesome.css'], 'public/css/dependencies.css', 'public/css')
+        .scripts('bootbox.min.js', 'public/js/bootbox.min.js', 'resources/assets/javascripts')
+        .scripts('learner.js', 'public/js/learner.min.js', 'resources/assets/javascripts')
         .scripts(
         [
             'jquery/dist/jquery.js',
