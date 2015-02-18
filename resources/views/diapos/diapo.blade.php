@@ -5,7 +5,7 @@
     <div class="container">
         @if (!empty($diapos))
             <a style="text-decoration: none;" class="btn btn-success" href="{{ URL::action('DiapoAdminController@getInsertDiapo', 0) }}">Insérer une diapo</a>
-        0
+            0
             @foreach($diapos as $elem)
                 <div class="panel panel-default">
                     <div class="panel-body" style="text-align: center;">

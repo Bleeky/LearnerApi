@@ -24,13 +24,21 @@ class DiapoAdminController extends AdminController
 
     public function getEditDiapo($id)
     {
-        return "Edit Diapo "+ $id;
+        $diapo = Diapo::find($id);
+
+        $json = array();
+        $json['content'] = json_decode($diapo->content);
+        $json['id'] = $diapo->id;
+        return view('diapos.edit')->with('diapo', $json);
     }
 
 
     public function getInsertDiapo($id)
     {
-        return "Insert Diapo at order" + $id;
+        $diapo = new Diapo;
+
+
+        return view('diapos.insert');
     }
 
 
@@ -78,7 +86,7 @@ class DiapoAdminController extends AdminController
             foreach ($diapos as $diapo)
             {
                 $tab_content[$i] = json_decode($diapo->content);
-                $tab_content[$i]['id'] = $module_id;
+                $tab_content[$i]['id'] = $diapo->id;
                 $i++;
             }
         }
