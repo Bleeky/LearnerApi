@@ -21,6 +21,10 @@ class DiapoEditAdminController extends AdminController
         return view('diapos.form.form2');
     }
 
+    public function postUpdate()
+    {
+
+    }
     public function postUpdateForm1()
     {
 //        $id = Request::input('id');

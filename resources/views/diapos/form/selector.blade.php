@@ -3,6 +3,7 @@
 
     <div class="col-md-6">
         <select id="form-selector">
+            <option value="-1"></option>
             <option value="{{ URL::action('DiapoEditAdminController@getForm1') }}">1</option>
             <option value="{{ URL::action('DiapoEditAdminController@getForm2') }}">2</option>
             <option value="{{ URL::action('DiapoEditAdminController@getForm3') }}">3</option>
