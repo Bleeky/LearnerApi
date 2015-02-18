@@ -95,8 +95,15 @@ function EditUser(url, id, username, token) {
             }
         }
     );
-
 }
+
+function handleForms() {
+    $("#form-selector select").change(function() {
+        SwitchForm($("#form-selector select option:selected").val());
+    });
+}
+
+$(document).ready(handleForms);
 
 function SwitchForm(url) {
     $.ajax({
@@ -104,7 +111,7 @@ function SwitchForm(url) {
         type: 'GET',
         dataType: 'html',
         success: function (code_html, statut) {
-            $(code_html).replaceAll("#dispo-form").hide().fadeIn("slow");
+            $(code_html).replaceAll("#diapo-form").hide().fadeIn("slow");
         },
         error: function () {
             bootbox.alert("Oups. There was a problem while getting the form.", function () {
