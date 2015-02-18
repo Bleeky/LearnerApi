@@ -60,17 +60,17 @@ class ModuleTableSeeder extends Seeder {
 								  'img'         => 'https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg'
 		]);
 
-		$diapo1 = Diapo::create(['content'   => '[{"type":"2","data":"Diapo 1","img": "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"}]',
+		$diapo1 = Diapo::create(['content'   => '[{"type":"2","title" : null,"data":"Diapo 1","img": "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"}]',
 								 'module_id' => $module->id,
 		]);
-		$diapo2 = Diapo::create(['content'   => '[{"type":"1","data":"Diapo 2","img": "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"}]',
+		$diapo2 = Diapo::create(['content'   => '[{"type":"1","title" : null,"data":"Diapo 2","img": "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"}]',
 								 'module_id' => $module->id,
 								 'prev_id'   => $diapo1->id,
 		]);
 		$diapo1->next_id = $diapo2->id;
 		$diapo1->save();
 
-		$diapo3 = Diapo::create(['content'   => '[{"type":"2","data":"Diapo 3","img": "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"}]',
+		$diapo3 = Diapo::create(['content'   => '[{"type":"2","title" : null,"data":"Diapo 3","img": "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"}]',
 								 'module_id' => $module->id,
 								 'prev_id'   => $diapo2->id,
 		]);

@@ -98,7 +98,7 @@ function EditUser(url, id, username, token) {
 }
 
 function handleForms() {
-    $("#form-selector select").change(function() {
+    $("#form-selector").change(function() {
         SwitchForm($("#form-selector select option:selected").val());
     });
 }
