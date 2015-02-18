@@ -97,3 +97,19 @@ function EditUser(url, id, username, token) {
     );
 
 }
+
+function SwitchForm(url) {
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'html',
+        success: function (code_html, statut) {
+            $(code_html).replaceAll("#dispo-form").hide().fadeIn("slow");
+        },
+        error: function () {
+            bootbox.alert("Oups. There was a problem while getting the form.", function () {
+            });
+        }
+    })
+
+}
