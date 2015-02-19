@@ -1,29 +1,32 @@
 <div id="diapo-form">
-    {!! Form::open(array('class' =>
-'form-horizontal')) !!}
-<div class="form-group">
-    <label class="col-md-4 control-label">Title : </label>
+    <div class="container">
 
-    <div class="col-md-6">
-        {!! Form::text('title', null, array('id'=>'title',
-        'autocomplete'=>'off',
-        'autofocus'=>'autofocus', 'class' => 'form-control')) !!}
+        {!! Form::open(['action'=>'DiapoEditAdminController@postUpdateForm1', 'id'=>'module-infos',
+        'class'=>'admin-form', 'files'=>'true']) !!}
+        {!! Form::hidden('diapo-id', $diapo['id']) !!}
+        <div class="form-group">
+            <label>Diapo title</label>
+            @if ($diapo['content'][0]->title)
+                {!! Form::text('diapo-title', $diapo['content'][0]->img, array('class'=>'form-control',
+                'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
+            @else
+                {!! Form::text('diapo-title', null, array('class'=>'form-control',
+                'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
+            @endif
+        </div>
+        <div class="form-group">
+            <label>Diapo text</label>
+            @if ($diapo['content'][0]->data)
+                {!! Form::text('diapo-data', $diapo['content'][0]->data, array('class'=>'form-control',
+                'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
+            @else
+                {!! Form::text('diapo-data', null, array('class'=>'form-control',
+                'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
+            @endif
+        </div>
+        {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
+        =>
+        'btn btn-success'])!!}
+        {!! Form::close() !!}
     </div>
 </div>
-<div class="form-group">
-    <label class="col-md-4 control-label">Text : </label>
-
-    <div class="col-md-6">
-        {!! Form::text('text', null, array('id'=>'text',
-        'autocomplete'=>'off', 'class' => 'form-control')) !!}
-    </div>
-</div>
-
-<div class="form-group">
-    <div class="col-md-6 col-md-offset-4">
-
-        {!! Form::submit('Ok', array('class' => 'btn btn-primary')) !!}
-    </div>
-</div>
-{!! Form::close() !!}
-    </div>
