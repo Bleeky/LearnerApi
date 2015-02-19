@@ -11,10 +11,11 @@
                 @endforeach
             </div>
         @endif
+
     </div>
 
     <div class="container">
-        {!! Form::open(['action'=>'DiapoInsertAdminController@postInsertFromForm1', 'id'=>'module-infos',
+        {!! Form::open(['action'=>'DiapoInsertAdminController@postInsertFromForm2', 'id'=>'module-infos',
         'class'=>'admin-form', 'files'=>'true']) !!}
         {!! Form::hidden('diapo-id', $id) !!}
         <div class="form-group">
@@ -23,9 +24,8 @@
             'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
         </div>
         <div class="form-group">
-            <label>Diapo text</label>
-            {!! Form::textarea('diapo-data', null, array('class'=>'form-control',
-            'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
+            <label>Diapo image</label>
+            {!! Form::file('diapo-picture') !!}
         </div>
         {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>

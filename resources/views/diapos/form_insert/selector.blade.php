@@ -5,9 +5,9 @@
         <div class="col-md-6">
             <select id="form-selector">
                 <option value="-1"></option>
-                <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.form1']) }}">1</option>
-                {{--<option value="{{ URL::action('DiapoEditAdminController@getEditToForm', ['diapos.form_insert.form2']) }}">2</option>--}}
-                {{--<option value="{{ URL::action('DiapoEditAdminController@getEditToForm', ['diapos.form_insert.form3']) }}">3</option>--}}
+                <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.form1', $diapo->id]) }}">1</option>
+                <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.form2', $diapo->id]) }}">2</option>
+                <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.form3', $diapo->id]) }}">3</option>
             </select>
         </div>
     </div>

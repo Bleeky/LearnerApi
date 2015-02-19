@@ -35,7 +35,7 @@ class DiapoAdminController extends AdminController
 
     public function getInsertDiapo($id)
     {
-        return view('diapos.insert');
+        return view('diapos.insert')->with('diapo', Diapo::find($id));
     }
 
 
