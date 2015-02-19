@@ -35,9 +35,6 @@ class DiapoAdminController extends AdminController
 
     public function getInsertDiapo($id)
     {
-        $diapo = new Diapo;
-
-
         return view('diapos.insert');
     }
 

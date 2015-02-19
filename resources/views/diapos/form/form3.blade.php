@@ -1,5 +1,20 @@
 <div id="diapo-form">
     <div class="container">
+        @if ($errors->has('success'))
+            <div class="label label-success">
+                {{ $errors->first('success') }}
+            </div>
+        @elseif ($errors->has())
+            <div class="label label-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+            </div>
+        @endif
+
+    </div>
+
+    <div class="container">
         @if ($diapo['content'][0]->img)
             {!! HTML::image($diapo['content'][0]->img, null, (['class' => 'img-responsive img-rounded', 'style' =>
             'max-height: 300px; margin-right: auto; margin-left: auto;'])) !!}

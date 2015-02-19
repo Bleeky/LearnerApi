@@ -1,4 +1,9 @@
 @extends('layouts.default')
 @section('content')
-insert
+
+    @include('diapos.form_insert.selector')
+
+    <div id="diapo-form">
+
+    </div>
 @stop
