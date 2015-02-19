@@ -51,11 +51,11 @@ class ModuleTableSeeder extends Seeder {
 						'img'         => 'http://desktopbackgroundshq.com/backgrounds/animal-bird-animal-backgrounds-animal-bird-25907.jpg'
 		]);
 
-		$d1 = Diapo::create(['content'   => '[{"type":"2","title" : null,"img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg"}]',
+		$d1 = Diapo::create(['content'   => '[{"type":"2","title" : null,"img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg", "data":""}]',
 							 'module_id' => $m1->id,
 		]);
 
-		$d2 = Diapo::create(['content'   => '[{"type":"1","title" : null,"data":"Ceci est un petit test de texte qui doit etre affiche dans une diapo de type 1 qui comprend seulement du texte et un titre optionnel."}]',
+		$d2 = Diapo::create(['content'   => '[{"type":"1","title" : null,"data":"Ceci est un petit test de texte qui doit etre affiche dans une diapo de type 1 qui comprend seulement du texte et un titre optionnel.", "img":""}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d1->id,
 		]);
@@ -96,6 +96,21 @@ class ModuleTableSeeder extends Seeder {
 		]);
 		$d6->next_id = $d7->id;
 		$d6->save();
+
+		$d8 = Diapo::create(['content'   => '[{"type": "7", "question":"Qui est francais ?","responses" : [{"response": "Barack Obama", "valid": "false"}, {"response": "Francois Hollande", "valid": "true"}, {"response": "Sadam Hussein", "valid": "false"}, {"response": "Jean-Claude Duss", "valid": "true"}]}]',
+							 'module_id' => $m1->id,
+							 'prev_id'   => $d7->id,
+		]);
+		$d7->next_id = $d8->id;
+		$d7->save();
+
+		$d9 = Diapo::create(['content'   => '[{"type":"1","title" : null,"data":"Ceci est un petit test de texte qui doit etre affiche dans une diapo de type 1 qui comprend seulement du texte et un titre optionnel.", "img":""}]',
+							 'module_id' => $m1->id,
+							 'prev_id'   => $d8->id,
+		]);
+		$d8->next_id = $d9->id;
+		$d8->save();
+
 	}
 
 }

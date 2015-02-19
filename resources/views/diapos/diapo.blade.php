@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container">
-        @if (!empty($diapos))
+        <a style="text-decoration: none; margin-top: 13px; margin-bottom: 13px;" class="btn btn-primary"
+           href="{{ URL::action('ModuleAdminController@getIndex') }}">Retour</a>
+    @if (!empty($diapos))
             @foreach($diapos as $elem)
                 <a style="text-decoration: none; margin-top: 13px; margin-bottom: 13px;" class="btn btn-success"
                    href="{{ URL::action('DiapoAdminController@getInsertDiapo', [$elem['id']]) }}">Insérer une diapo</a>

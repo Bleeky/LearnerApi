@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label>Diapo text</label>
-            {!! Form::text('diapo-data', null, array('class'=>'form-control',
+            {!! Form::textarea('diapo-data', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
         </div>
 

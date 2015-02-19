@@ -3,11 +3,11 @@
 
     <div class="container">
         @if ($errors->has('success'))
-            <div class="success-request">
+            <div class="label label-success">
                 {{ $errors->first('success') }}
             </div>
         @elseif ($errors->has())
-            <div class="error-login">
+            <div class="label label-danger">
                 @foreach ($errors->all() as $error)
                     {{ $error }}<br>
                 @endforeach

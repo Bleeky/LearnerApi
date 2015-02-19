@@ -25,10 +25,10 @@
         <div class="form-group">
             <label>Diapo text</label>
             @if ($diapo['content'][0]->data)
-                {!! Form::text('diapo-data', $diapo['content'][0]->data, array('class'=>'form-control',
+                {!! Form::textarea('diapo-data', $diapo['content'][0]->data, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @else
-                {!! Form::text('diapo-data', null, array('class'=>'form-control',
+                {!! Form::textarea('diapo-data', null, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @endif
         </div>

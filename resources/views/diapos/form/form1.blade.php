@@ -1,5 +1,20 @@
 <div id="diapo-form">
     <div class="container">
+        @if ($errors->has('success'))
+            <div class="label label-success">
+                {{ $errors->first('success') }}
+            </div>
+        @elseif ($errors->has())
+            <div class="label label-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+            </div>
+        @endif
+
+    </div>
+
+    <div class="container">
 
         {!! Form::open(['action'=>'DiapoEditAdminController@postUpdateForm1', 'id'=>'module-infos',
         'class'=>'admin-form', 'files'=>'true']) !!}
@@ -17,10 +32,10 @@
         <div class="form-group">
             <label>Diapo text</label>
             @if ($diapo['content'][0]->data)
-                {!! Form::text('diapo-data', $diapo['content'][0]->data, array('class'=>'form-control',
+                {!! Form::textarea('diapo-data', $diapo['content'][0]->data, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @else
-                {!! Form::text('diapo-data', null, array('class'=>'form-control',
+                {!! Form::textarea('diapo-data', null, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @endif
         </div>
