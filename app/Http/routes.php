@@ -13,5 +13,6 @@ Route::controllers([
 	'/admin/diapos' => 'DiapoAdminController',
 	'/admin/modules' => 'ModuleAdminController',
 	'/admin/users' => 'UserAdminController',
+	'/admin/patients' => 'PatientAdminController',
 	'/admin' => 'AdminController'
 ]);

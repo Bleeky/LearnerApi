@@ -4,7 +4,7 @@
 
     <div class="container">
         <a style="float:left; text-decoration: none;" class="btn btn-success"
-           href="{{ URL::action('UserAdminController@getAddUser') }}">Ajouter un utilisateur</a>
+           onclick="AddUser('{{ URL::action('UserAdminController@getAddUser') }}')">Ajouter un utilisateur</a>
     </div>
 
     <div class="container">

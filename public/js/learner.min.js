@@ -1,8 +1,3 @@
-/**
- * Created by Quentin on 17/02/15.
- */
-
-
 function AddUser(url) {
     $.ajax({
         url: url,
