@@ -11,7 +11,7 @@
         <div class="form-group">
             <label>Diapo title</label>
             @if ($diapo['content'][0]->title)
-                {!! Form::text('diapo-title', $diapo['content'][0]->img, array('class'=>'form-control',
+                {!! Form::text('diapo-title', $diapo['content'][0]->title, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @else
                 {!! Form::text('diapo-title', null, array('class'=>'form-control',
