@@ -165,6 +165,107 @@ class DiapoInsertAdminController extends AdminController
         $elem->save();
         return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
     }
+
+    public function postInsertFromForm4(Form3Request $request)
+    {
+        $update = $request->all();
+        //insert in first place
+        $new_json = [[
+            "type" => '4',
+            "title" => $update['diapo-title'],
+            "data" => $update['diapo-data'],
+        ]];
+        $new_file = $update['diapo-picture'];
+        $filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
+        $new_file->move('resources/diapos', $filename);
+        $new_json[0]['img'] = asset('resources/diapos/' . $filename);
+        $diapos= Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
+        $new_json = json_encode($new_json);
+        $elem = new Diapo();
+        $elem->content = $new_json;
+        $elem->module()->associate(Module::find($update['module_id']));
+        $elem->save();
+        if ($update['diapo-id'] == "0")
+        {
+            foreach ($diapos as $diapo)
+            {
+                $elem->prev_id = null;
+                $elem->next_id = $diapo->id;
+                $diapo->prev_id = $elem->id;
+                $diapo->save();
+            }
+        }
+        else
+        {
+            $insert_after = Diapo::find($update['diapo-id']);
+            if (!empty($insert_after))
+            {
+                $insert_before = Diapo::find($insert_after->next_id);
+                $insert_after->next_id = $elem->id;
+                $elem->prev_id = $insert_after->id;
+                $elem->next_id = null;
+                if (!empty($insert_before))
+                {
+                    $elem->next_id = $insert_before->id;
+                    $insert_before->prev_id = $elem->id;
+                    $insert_before->save();
+                }
+                $insert_after->save();
+            }
+        }
+        $elem->save();
+        return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
+    }
+    public function postInsertFromForm5(Form3Request $request)
+    {
+        $update = $request->all();
+        //insert in first place
+        $new_json = [[
+            "type" => '5',
+            "title" => $update['diapo-title'],
+            "data" => $update['diapo-data'],
+        ]];
+        $new_file = $update['diapo-picture'];
+        $filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
+        $new_file->move('resources/diapos', $filename);
+        $new_json[0]['img'] = asset('resources/diapos/' . $filename);
+        $diapos= Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
+        $new_json = json_encode($new_json);
+        $elem = new Diapo();
+        $elem->content = $new_json;
+        $elem->module()->associate(Module::find($update['module_id']));
+        $elem->save();
+        if ($update['diapo-id'] == "0")
+        {
+            foreach ($diapos as $diapo)
+            {
+                $elem->prev_id = null;
+                $elem->next_id = $diapo->id;
+                $diapo->prev_id = $elem->id;
+                $diapo->save();
+            }
+        }
+        else
+        {
+            $insert_after = Diapo::find($update['diapo-id']);
+            if (!empty($insert_after))
+            {
+                $insert_before = Diapo::find($insert_after->next_id);
+                $insert_after->next_id = $elem->id;
+                $elem->prev_id = $insert_after->id;
+                $elem->next_id = null;
+                if (!empty($insert_before))
+                {
+                    $elem->next_id = $insert_before->id;
+                    $insert_before->prev_id = $elem->id;
+                    $insert_before->save();
+                }
+                $insert_after->save();
+            }
+        }
+        $elem->save();
+        return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
+    }
     public function postInsertFromFormQuestion1(FormQuestion1Request $request)
     {
         $update = $request->all();
