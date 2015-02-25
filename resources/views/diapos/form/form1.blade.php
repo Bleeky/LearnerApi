@@ -43,5 +43,7 @@
         =>
         'btn btn-success'])!!}
         {!! Form::close() !!}
+        <a style="text-decoration: none; margin-top: 13px; margin-bottom: 13px;" class="btn btn-primary"
+           href="{{ URL::action('DiapoAdminController@getHome') }}">Retour</a>
     </div>
 </div>

@@ -9,11 +9,11 @@
         <br>
         <br>
         @if ($elem[0]->range_begin)
-            Valeur de debut : {!! $elem[0]->range_begin !!}
+            Valeur de minimum : {!! $elem[0]->range_begin !!}
         @endif
         <br>
         @if ($elem[0]->range_end)
-            Valeur de debut : {!! $elem[0]->range_end !!}
+            Valeur de maximum : {!! $elem[0]->range_end !!}
         @endif
         <br>
         @if ($elem[0]->range_step)

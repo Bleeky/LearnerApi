@@ -38,6 +38,15 @@
                 {!! Form::text('diapo-response1', null, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-response1', 'autocomplete'=>'off')) !!}
             @endif
+            @if($diapo['content'][0]->responses && $diapo['content'][0]->responses[0]->valid == "true")
+                {!! Form::select('select-response1',['true' => 'vrai', 'false' => 'faux'] ,  'true',
+                array('class'=>'form-control',
+                'id'=>'select-response1')) !!}
+            @else
+                {!! Form::select('select-response1',['true' => 'vrai', 'false' => 'faux'] ,  'false',
+                array('class'=>'form-control',
+                'id'=>'select-response1')) !!}
+            @endif
         </div>
         <div class="form-group">
             <label>Réponse 2</label>
@@ -48,6 +57,15 @@
             @else
                 {!! Form::text('diapo-response2', null, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-repsonse2', 'autocomplete'=>'off')) !!}
+            @endif
+            @if($diapo['content'][0]->responses && $diapo['content'][0]->responses[1]->valid == "true")
+                {!! Form::select('select-response2',['true' => 'vrai', 'false' => 'faux'] ,  'true',
+                array('class'=>'form-control',
+                'id'=>'select-response2')) !!}
+            @else
+                {!! Form::select('select-response2',['true' => 'vrai', 'false' => 'faux'] ,  'false',
+                array('class'=>'form-control',
+                'id'=>'select-response2')) !!}
             @endif
         </div>
         <div class="form-group">
@@ -60,6 +78,15 @@
                 {!! Form::text('diapo-response3', null, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-response3', 'autocomplete'=>'off')) !!}
             @endif
+            @if($diapo['content'][0]->responses && $diapo['content'][0]->responses[2]->valid == "true")
+                {!! Form::select('select-response3',['true' => 'vrai', 'false' => 'faux'] ,  'true',
+                array('class'=>'form-control',
+                'id'=>'select-response3')) !!}
+            @else
+                {!! Form::select('select-response3',['true' => 'vrai', 'false' => 'faux'] ,  'false',
+                array('class'=>'form-control',
+                'id'=>'select-response3')) !!}
+            @endif
         </div>
         <div class="form-group">
             <label>Réponse 4</label>
@@ -71,24 +98,17 @@
                 {!! Form::text('diapo-response4', null, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-response4', 'autocomplete'=>'off')) !!}
             @endif
-        </div>
-        <div class="form-group">
-            <label>Réponse : </label>
-            @if ($diapo['content'][0]->responses)
-            @for ($i = 0 ; !empty($diapo['content'][0]->responses[$i]) ; $i++)
-                @if($diapo['content'][0]->responses[$i]->valid == "true")
-                    {!! Form::select('select-response',['0' => '1', '1' => '2', '2' => '3','3' => '4'] ,  $i,
-                    array('class'=>'form-control',
-                     'id'=>'select-response')) !!}
-                @endif
-            @endfor
-                @else
-                        {!! Form::select('select-response',['0' => '1', '1' => '2', '2' => '3','3' => '4'] ,
-                        array('class'=>'form-control',
-                         'id'=>'select-response')) !!}
-
+            @if($diapo['content'][0]->responses && $diapo['content'][0]->responses[3]->valid == "true")
+                {!! Form::select('select-response4',['true' => 'vrai', 'false' => 'faux'] ,  'true',
+                array('class'=>'form-control',
+                'id'=>'select-response4')) !!}
+            @else
+                {!! Form::select('select-response4',['true' => 'vrai', 'false' => 'faux'] ,  'false',
+                array('class'=>'form-control',
+                'id'=>'select-response4')) !!}
             @endif
         </div>
+
         {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>
         'btn btn-success'])!!}
