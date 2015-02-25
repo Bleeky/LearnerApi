@@ -14,7 +14,6 @@
             </div>
         @endif
         <br>
-        Id de la diapo [{!! $elem['id']!!}]
         <a style="text-decoration: none;" class="btn btn-warning"
            href="{{ URL::action('DiapoAdminController@getEditDiapo', [$elem['id']]) }}">Éditer</a>
         <a style="text-decoration: none;" class="btn btn-danger"

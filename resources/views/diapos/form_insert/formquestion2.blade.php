@@ -44,7 +44,7 @@
             'autocomplete'=>'off', 'id'=>'diapo-range_step', 'autocomplete'=>'off')) !!}
         </div>
 
-        {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
+        {!! Form::submit('Ajouter', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         => 'btn btn-success'])!!}
         {!! Form::close() !!}
     </div>

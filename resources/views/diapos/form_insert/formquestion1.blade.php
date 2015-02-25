@@ -56,7 +56,7 @@
             array('class'=>'form-control',
             'id'=>'select-response4')) !!}
         </div>
-        {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
+        {!! Form::submit('Ajouter', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>
         'btn btn-success'])!!}
         {!! Form::close() !!}

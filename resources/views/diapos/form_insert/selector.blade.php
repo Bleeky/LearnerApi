@@ -1,4 +1,7 @@
 <div class="container" style="text-align: center; margin-bottom: 26px;">
+    <a style="text-decoration: none; margin-top: 13px; margin-bottom: 13px;" class="btn btn-primary"
+       href="{{ URL::action('DiapoAdminController@getHome', [$module_id]) }}">Retour</a>
+
     <div class="form-group">
         <label class="col-md-4 control-label">Type</label>
 

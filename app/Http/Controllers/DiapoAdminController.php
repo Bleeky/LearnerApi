@@ -34,6 +34,7 @@ class DiapoAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($diapo->content);
         $json['id'] = $diapo->id;
+        $json['module_id'] = $diapo->module_id;
 
         return view('diapos.edit')->with('diapo', $json);
     }
