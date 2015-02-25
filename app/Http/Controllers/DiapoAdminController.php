@@ -1,7 +1,7 @@
 <?php
 
 namespace LearnerApi\Http\Controllers;
-
+use Illuminate\Support\Facades\Redirect;
 use LearnerApi\Diapo;
 
 class DiapoAdminController extends AdminController
@@ -9,16 +9,21 @@ class DiapoAdminController extends AdminController
 
     public function getHome($id)
     {
-        $diapos = Diapo::where("module_id", "=", $id)->get();
+        $diapos = Diapo::where("module_id", "=", $id)->where("prev_id", "=", null)->get();
         $i = 0;
         $tab_content = array();
-        if ($diapos) {
-            foreach ($diapos as $diapo) {
+        foreach ($diapos as $diapo)
+        {
+            while ($diapo != null || !empty($diapo))
+            {
                 $tab_content[$i] = json_decode($diapo->content);
                 $tab_content[$i]['id'] = $diapo->id;
+                $tab_content[$i]['module_id'] = $id;
                 $i++;
+                $diapo = Diapo::find($diapo->next_id);
             }
         }
+        $tab_content[$i]['module_id'] = $id;
         return view('diapos.diapo')->with('diapos', $tab_content);
     }
 
@@ -34,9 +39,10 @@ class DiapoAdminController extends AdminController
     }
 
 
-    public function getInsertDiapo($id)
+    public function getInsertDiapo($id, $module_id)
     {
-        return view('diapos.insert')->with('diapo', Diapo::find($id));
+        return view('diapos.insert')->with('id', $id)
+                                    ->with('module_id', $module_id);
     }
 
 
@@ -77,17 +83,6 @@ class DiapoAdminController extends AdminController
             $curr->delete();
 
         }
-        $diapos = (empty($module_id)) ? null : Diapo::where("module_id", "=", $module_id)->get();
-        $i = 0;
-        $tab_content = array();
-        if ($diapos) {
-            foreach ($diapos as $diapo)
-            {
-                $tab_content[$i] = json_decode($diapo->content);
-                $tab_content[$i]['id'] = $diapo->id;
-                $i++;
-            }
-        }
-        return view('diapos.diapo')->with('diapos', $tab_content);
-   }
+        return Redirect::action('DiapoAdminController@getHome', ['id'=> $module_id]);
+    }
 }

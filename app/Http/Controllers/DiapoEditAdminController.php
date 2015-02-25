@@ -202,8 +202,8 @@ class DiapoEditAdminController extends AdminController
             "range_step" => $update['diapo-range_step'],
         ]];
         /*
-       * Delete old image of the diapo if the diapo contained one.
-       */
+        * Delete old image of the diapo if the diapo contained one.
+        */
         if (!empty($current_content[0]->img))
             if ($current_content[0]->img != null) {
             $filename = explode('/', $current_content[0]->img);

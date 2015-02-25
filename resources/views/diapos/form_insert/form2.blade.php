@@ -18,6 +18,7 @@
         {!! Form::open(['action'=>'DiapoInsertAdminController@postInsertFromForm2', 'id'=>'module-infos',
         'class'=>'admin-form', 'files'=>'true']) !!}
         {!! Form::hidden('diapo-id', $id) !!}
+        {!! Form::hidden('module_id', $module_id) !!}
         <div class="form-group">
             <label>Diapo title</label>
             {!! Form::text('diapo-title', null, array('class'=>'form-control',
