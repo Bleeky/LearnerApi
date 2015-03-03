@@ -69,7 +69,12 @@ class ModuleAdminController extends AdminController {
 
 	public function getDeleteModule($id)
 	{
-		Module::find($id)->delete();
+		$module = Module::find($id);
+
+		$filename = explode('/', $module->img);
+		if (File::exists('resources/modules/' . end($filename)))
+			File::delete('resources/modules/' . end($filename));
+		$module->delete();
 
 		return view('modules.module')->with('modules', Module::all())->withErrors(['success' => 'Module deleted with success.']);
 	}
