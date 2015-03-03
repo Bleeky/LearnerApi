@@ -1,6 +1,19 @@
 @extends('layouts.default')
 @section('content')
+    <div class="container">
+        @if ($errors->has('success'))
+            <div class="label label-success">
+                {{ $errors->first('success') }}
+            </div>
+        @elseif ($errors->has())
+            <div class="label label-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+            </div>
+        @endif
 
+    </div>
     <div class="container">
         @if ($module->img)
             {!! HTML::image($module->img, null, (['class' => 'img-responsive img-rounded', 'style' =>
