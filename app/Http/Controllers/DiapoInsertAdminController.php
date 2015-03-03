@@ -77,7 +77,7 @@ class DiapoInsertAdminController extends AdminController
         $elem->save();
         return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
     }
-    public function postInsertFromForm2(Form2Request $request)
+    public function postInsertFromForm2(Form2InsertRequest $request)
     {
         $update = $request->all();
         //insert in first place
@@ -135,7 +135,7 @@ class DiapoInsertAdminController extends AdminController
         $elem->save();
         return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
     }
-    public function postInsertFromForm3(Form3Request $request)
+    public function postInsertFromForm3(Form3InsertRequest $request)
     {
         $update = $request->all();
         //insert in first place
@@ -195,7 +195,7 @@ class DiapoInsertAdminController extends AdminController
         return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
     }
 
-    public function postInsertFromForm4(Form3Request $request)
+    public function postInsertFromForm4(Form3InsertRequest $request)
     {
         $update = $request->all();
         //insert in first place
@@ -254,7 +254,7 @@ class DiapoInsertAdminController extends AdminController
         $elem->save();
         return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
     }
-    public function postInsertFromForm5(Form3Request $request)
+    public function postInsertFromForm5(Form3InsertRequest $request)
     {
         $update = $request->all();
         //insert in first place
