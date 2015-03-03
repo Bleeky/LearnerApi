@@ -31,7 +31,7 @@
         <div class="form-group" style="float: left;">
             <label>Diapo image</label>
             {!! Form::file('diapo-picture') !!}
-        </div>
+        </div>`
         <div class="form-group" style="float:left;">
             <label>Diapo text</label>
             @if ($diapo['content'][0]->data)

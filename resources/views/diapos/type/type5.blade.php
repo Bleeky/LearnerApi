@@ -4,7 +4,9 @@
         <br>
         <br>
         @if ($elem[0]->title)
-            Titre : {!! $elem[0]->title !!}
+            <div>
+                Titre : {!! $elem[0]->title !!}
+            </div>
         @endif
         @if($elem[0]->data)
             <div style="float: left;">
@@ -12,7 +14,7 @@
             </div>
         @endif
         @if($elem[0]->img)
-            <div >
+            <div>
                 {!! HTML::image($elem[0]->img, null, (['class' => 'img-responsive img-rounded', 'style'
                 => 'max-height: 150px; margin-right: auto; margin-left: auto;'])) !!}
             </div>

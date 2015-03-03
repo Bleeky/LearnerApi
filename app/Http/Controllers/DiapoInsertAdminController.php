@@ -28,7 +28,18 @@ class DiapoInsertAdminController extends AdminController
             "type" => '1',
             "title" => $update['diapo-title'],
             "data" => $update['diapo-data'],
-        ]];
+			"img" => null,
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+
+		]];
         $diapos= Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
         $new_json = json_encode($new_json);
         $elem = new Diapo();
@@ -73,7 +84,16 @@ class DiapoInsertAdminController extends AdminController
         $new_json = [[
             "type" => '2',
             "title" => $update['diapo-title'],
-        ]];
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+		]];
         $new_file = $update['diapo-picture'];
         $filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
         $new_file->move('resources/diapos', $filename);
@@ -123,7 +143,16 @@ class DiapoInsertAdminController extends AdminController
             "type" => '3',
             "title" => $update['diapo-title'],
             "data" => $update['diapo-data'],
-        ]];
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+		]];
         $new_file = $update['diapo-picture'];
         $filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
         $new_file->move('resources/diapos', $filename);
@@ -174,7 +203,16 @@ class DiapoInsertAdminController extends AdminController
             "type" => '4',
             "title" => $update['diapo-title'],
             "data" => $update['diapo-data'],
-        ]];
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+		]];
         $new_file = $update['diapo-picture'];
         $filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
         $new_file->move('resources/diapos', $filename);
@@ -224,7 +262,16 @@ class DiapoInsertAdminController extends AdminController
             "type" => '5',
             "title" => $update['diapo-title'],
             "data" => $update['diapo-data'],
-        ]];
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+		]];
         $new_file = $update['diapo-picture'];
         $filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
         $new_file->move('resources/diapos', $filename);
@@ -272,7 +319,14 @@ class DiapoInsertAdminController extends AdminController
         //insert in first place
         $new_json = [[
             "type" => '7',
-            "question" => $update['diapo-question'],
+			"title" => null,
+			"data" => null,
+			"img" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"question" => $update['diapo-question'],
             "responses" =>
                 [
                     [
@@ -345,12 +399,19 @@ class DiapoInsertAdminController extends AdminController
         //insert in first place
         $new_json = [[
             "type" => '8',
-            "question" => $update['diapo-question'],
+			"title" => null,
+			"data" => null,
+			"img" => null,
+			"question" => $update['diapo-question'],
             "response" => $update['diapo-response'],
             "range_begin" => $update['diapo-range_begin'],
             "range_end" => $update['diapo-range_end'],
             "range_step" => $update['diapo-range_step'],
-        ]];
+			"responses" =>
+				[
+					null
+				]
+		]];
         $diapos= Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
         $new_json = json_encode($new_json);
         $elem = new Diapo();

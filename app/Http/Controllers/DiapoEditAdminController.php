@@ -32,7 +32,17 @@ class DiapoEditAdminController extends AdminController
             "type" => '1',
             "title" => $update['diapo-title'],
             "data" => $update['diapo-data'],
-        ]];
+            "img" => null,
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+		]];
 
         /*
          * Delete old image of the diapo if the diapo contained one.
@@ -52,8 +62,9 @@ class DiapoEditAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
+        $json['module_id'] = $old_diapo->module_id;
 
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Module updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
     }
 
     public function postUpdateForm2(Form2Request $request)
@@ -64,7 +75,17 @@ class DiapoEditAdminController extends AdminController
         $new_json = [[
             "type" => '2',
             "title" => $current_content[0]->title,
-            "data" => $current_content[0]->data,
+            "data" => null,
+			"img" => $current_content[0]->img,
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
         ]];
         /*
          * Delete old image of the diapo if the diapo contained one.
@@ -89,8 +110,9 @@ class DiapoEditAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
+		$json['module_id'] = $old_diapo->module_id;
 
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Module updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
     }
 
     public function postUpdateForm3(Form3Request $request)
@@ -105,6 +127,16 @@ class DiapoEditAdminController extends AdminController
             "type" => '3',
             "title" => $current_content[0]->title,
             "data" => $current_content[0]->data,
+            "img" => $current_content[0]->img,
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
         ]];
         if (Input::hasFile('diapo-picture')) {
             if (!empty($current_content[0]->img))
@@ -127,8 +159,9 @@ class DiapoEditAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
+		$json['module_id'] = $old_diapo->module_id;
 
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Module updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
     }
     public function postUpdateForm4(Form3Request $request)
     {
@@ -142,7 +175,17 @@ class DiapoEditAdminController extends AdminController
             "type" => '4',
             "title" => $current_content[0]->title,
             "data" => $current_content[0]->data,
-        ]];
+			"img" => $current_content[0]->img,
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+		]];
         if (Input::hasFile('diapo-picture')) {
             if (!empty($current_content[0]->img))
                 if ($current_content[0]->img != null) {
@@ -164,8 +207,9 @@ class DiapoEditAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
+		$json['module_id'] = $old_diapo->module_id;
 
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Module updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
     }
 
     public function postUpdateForm5(Form3Request $request)
@@ -180,7 +224,17 @@ class DiapoEditAdminController extends AdminController
             "type" => '5',
             "title" => $current_content[0]->title,
             "data" => $current_content[0]->data,
-        ]];
+			"img" => $current_content[0]->img,
+			"question" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+			"responses" =>
+				[
+					null
+				]
+		]];
         if (Input::hasFile('diapo-picture')) {
             if (!empty($current_content[0]->img))
                 if ($current_content[0]->img != null) {
@@ -202,8 +256,9 @@ class DiapoEditAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
+		$json['module_id'] = $old_diapo->module_id;
 
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Module updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
     }
 
     public function postUpdateFormQuestion1(FormQuestion1Request $request)
@@ -213,7 +268,15 @@ class DiapoEditAdminController extends AdminController
         $current_content = json_decode($old_diapo->content);
         $new_json = [[
             "question" => $update['diapo-question'],
-            "responses" =>
+			"title" => null,
+			"data" => null,
+			"img" => null,
+			"response" => null,
+			"range_begin" => null,
+			"range_end" => null,
+			"range_step" => null,
+
+			"responses" =>
                 [
                     [
                         "response" => $update['diapo-response1'],
@@ -259,8 +322,9 @@ class DiapoEditAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
+		$json['module_id'] = $old_diapo->module_id;
 
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Module updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
     }
 
     public function postUpdateFormQuestion2(FormQuestion2Request $request)
@@ -270,7 +334,11 @@ class DiapoEditAdminController extends AdminController
         $current_content = json_decode($old_diapo->content);
         $new_json = [[
             "type" => '8',
-            "question" => $update['diapo-question'],
+			"title" => null,
+			"data" => null,
+			"img" => null,
+
+			"question" => $update['diapo-question'],
             "response" => $update['diapo-response'],
             "range_begin" => $update['diapo-range_begin'],
             "range_end" => $update['diapo-range_end'],
@@ -290,7 +358,8 @@ class DiapoEditAdminController extends AdminController
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
+		$json['module_id'] = $old_diapo->module_id;
 
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Module updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
     }
 }
