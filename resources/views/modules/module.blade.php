@@ -1,8 +1,25 @@
 @extends('layouts.default')
 
 @section('content')
+
     <div class="container">
-        @foreach($modules as $module)
+        @if ($errors->has('success'))
+            <div class="label label-success">
+                {{ $errors->first('success') }}
+            </div>
+        @elseif ($errors->has())
+            <div class="label label-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+            </div>
+        @endif
+
+    </div>
+
+    <div class="container">
+        <a style="text-decoration: none;" class="btn btn-success" href="{{ URL::action('ModuleAdminController@getNewModule') }}">Ajouter</a>
+    @foreach($modules as $module)
             <div class="panel panel-default">
                 <div class="panel-body" style="text-align: center;">
                     {!! $module->title !!}

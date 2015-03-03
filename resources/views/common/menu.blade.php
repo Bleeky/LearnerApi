@@ -5,6 +5,7 @@
             <li><a href="{{ URL::action('ModuleAdminController@getIndex') }}">Modules</a></li>
             <li><a href="{{ URL::action('UserAdminController@getIndex') }}">Users</a></li>
             <li><a href="{{ URL::action('PatientAdminController@getIndex') }}">Patients</a></li>
+            <li><a href="">Settings</a></li>
             <li><a href="{{ URL::action('AuthenticationController@getLogout') }}">Logout</a></li>
         </ul>
     </div>

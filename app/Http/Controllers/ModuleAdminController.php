@@ -2,6 +2,7 @@
 
 namespace LearnerApi\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use LearnerApi\Http\Middleware\ModuleUpdateRequest;
 use LearnerApi\Module;
 use Illuminate\Support\Str;
@@ -17,6 +18,29 @@ class ModuleAdminController extends AdminController {
 	public function getEditModule($id)
 	{
 		return view('modules.edit')->with('module', Module::find($id));
+	}
+
+	public function getNewModule()
+	{
+		return view('modules.new');
+	}
+
+	public function postAddModule(ModuleUpdateRequest $request)
+	{
+		$update = $request->all();
+
+		$module = new Module;
+		$module->description = $update['module-description'];
+		$module->title = $update['module-title'];
+		if ($request->hasFile('module-picture'))
+		{
+			$filename = Str::random($lenght = 30) . '.' . $update['module-picture']->getClientOriginalExtension();
+			$update['module-picture']->move('resources/modules', $filename);
+			$module->img = asset('resources/modules/' . $filename);
+		}
+		$module->save();
+
+		return view('modules.module')->with('modules', Module::all())->withErrors(['success' => 'Module added with success.']);
 	}
 
 	public function postUpdateModule(ModuleUpdateRequest $request)
@@ -47,6 +71,6 @@ class ModuleAdminController extends AdminController {
 	{
 		Module::find($id)->delete();
 
-		return view('modules.module')->with('modules', Module::all());
+		return view('modules.module')->with('modules', Module::all())->withErrors(['success' => 'Module deleted with success.']);
 	}
 }
