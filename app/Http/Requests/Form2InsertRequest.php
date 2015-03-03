@@ -6,7 +6,7 @@ namespace LearnerApi\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Form2Request extends FormRequest {
+class Form2InsertRequest extends FormRequest {
 
 	public function rules()
 	{

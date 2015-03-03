@@ -62,7 +62,7 @@ class ModuleTableSeeder extends Seeder {
 		$d1->next_id = $d2->id;
 		$d1->save();
 
-		$d3 = Diapo::create(['content'   => '[{"type":"3","title" : "Ceci est un titre optionel !","data":"Diapo de type 3, qui comprend une image et un petit texte, ici present.","img": "https://lh5.googleusercontent.com/-dAe2v_8abKQ/VNnxJIEqFRI/AAAAAAAACcE/7KxoTvM-37w/s1338-no/2015-02-10.jpg"}]',
+		$d3 = Diapo::create(['content'   => '[{"type":"3","title" : "Ceci est un titre optionel !","data":"Diapo de type 3, qui comprend une image et un petit texte, ici present.","img": "http://www.photosdanimaux.org/wp-content/uploads/2011/02/bebe-animaux-leblogdusniper-8.jpg"}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d2->id,
 		]);
