@@ -296,10 +296,6 @@ class DiapoEditAdminController extends AdminController
                     ]
                 ]
         ]];
-        if ($current_content[0]->type == "6")
-            $new_json[0]['type'] = '6';
-        else
-            $new_json[0]['type'] = '7';
         /*
          * Delete old image of the diapo if the diapo contained one.
          */
@@ -309,22 +305,44 @@ class DiapoEditAdminController extends AdminController
             if (File::exists('resources/diapos/' . end($filename)))
                 File::delete('resources/diapos/' . end($filename));
         }
+        $count = 0;
         if ($update['select-response1'] == "true")
+        {
             $new_json[0]['responses'][0]['valid'] = "true";
+            $count++;
+        }
         if ($update['select-response2'] == "true")
+        {
             $new_json[0]['responses'][1]['valid'] = "true";
+            $count++;
+        }
         if ($update['select-response3'] == "true")
+        {
             $new_json[0]['responses'][2]['valid'] = "true";
+            $count++;
+        }
         if ($update['select-response4'] == "true")
+        {
             $new_json[0]['responses'][3]['valid'] = "true";
-        $old_diapo->content = json_encode($new_json);
-        $old_diapo->save();
+            $count++;
+        }
+        if ($count > 0)
+        {
+            if ($count == 1)
+                $new_json[0]['type'] = '6';
+            else
+                $new_json[0]['type'] = '7';
+            $old_diapo->content = json_encode($new_json);
+            $old_diapo->save();
+        }
+
         $json = array();
         $json['content'] = json_decode($old_diapo->content);
         $json['id'] = $old_diapo->id;
 		$json['module_id'] = $old_diapo->module_id;
-
-        return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
+        if ($count > 0)
+            return view('diapos.edit')->with('diapo', $json)->withErrors(['success' => 'Diapo updated with success.']);
+        return view('diapos.edit')->with('diapo', $json)->withErrors(['error' => 'You need at least one answer at true.']);
     }
 
     public function postUpdateFormQuestion2(FormQuestion2Request $request)

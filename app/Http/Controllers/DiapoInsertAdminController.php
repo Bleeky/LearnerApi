@@ -318,7 +318,6 @@ class DiapoInsertAdminController extends AdminController
         $update = $request->all();
         //insert in first place
         $new_json = [[
-            "type" => '7',
 			"title" => null,
 			"data" => null,
 			"img" => null,
@@ -347,50 +346,71 @@ class DiapoInsertAdminController extends AdminController
                     ]
                 ]
         ]];
+        $count = 0;
         if ($update['select-response1'] == "true")
+        {
             $new_json[0]['responses'][0]['valid'] = "true";
+            $count++;
+        }
         if ($update['select-response2'] == "true")
+        {
             $new_json[0]['responses'][1]['valid'] = "true";
+            $count++;
+        }
         if ($update['select-response3'] == "true")
+        {
             $new_json[0]['responses'][2]['valid'] = "true";
+            $count++;
+        }
         if ($update['select-response4'] == "true")
+        {
             $new_json[0]['responses'][3]['valid'] = "true";
-        $diapos= Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
-        $new_json = json_encode($new_json);
-        $elem = new Diapo();
-        $elem->content = $new_json;
-        $elem->module()->associate(Module::find($update['module_id']));
-        $elem->save();
-        if ($update['diapo-id'] == "0")
-        {
-            foreach ($diapos as $diapo)
-            {
-                $elem->prev_id = null;
-                $elem->next_id = $diapo->id;
-                $diapo->prev_id = $elem->id;
-                $diapo->save();
-            }
+            $count++;
         }
-        else
+        if ($count > 0)
         {
-            $insert_after = Diapo::find($update['diapo-id']);
-            if (!empty($insert_after))
+            if ($count == 1)
+                $new_json[0]['type'] = '6';
+            else
+                $new_json[0]['type'] = '7';
+            $diapos= Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
+            $new_json = json_encode($new_json);
+            $elem = new Diapo();
+            $elem->content = $new_json;
+            $elem->module()->associate(Module::find($update['module_id']));
+            $elem->save();
+            if ($update['diapo-id'] == "0")
             {
-                $insert_before = Diapo::find($insert_after->next_id);
-                $insert_after->next_id = $elem->id;
-                $elem->prev_id = $insert_after->id;
-                $elem->next_id = null;
-                if (!empty($insert_before))
+                foreach ($diapos as $diapo)
                 {
-                    $elem->next_id = $insert_before->id;
-                    $insert_before->prev_id = $elem->id;
-                    $insert_before->save();
+                    $elem->prev_id = null;
+                    $elem->next_id = $diapo->id;
+                    $diapo->prev_id = $elem->id;
+                    $diapo->save();
                 }
-                $insert_after->save();
             }
+            else
+            {
+                $insert_after = Diapo::find($update['diapo-id']);
+                if (!empty($insert_after))
+                {
+                    $insert_before = Diapo::find($insert_after->next_id);
+                    $insert_after->next_id = $elem->id;
+                    $elem->prev_id = $insert_after->id;
+                    $elem->next_id = null;
+                    if (!empty($insert_before))
+                    {
+                        $elem->next_id = $insert_before->id;
+                        $insert_before->prev_id = $elem->id;
+                        $insert_before->save();
+                    }
+                    $insert_after->save();
+                }
+            }
+            $elem->save();
+            return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
         }
-        $elem->save();
-        return Redirect::action('DiapoAdminController@getHome', ['id'=>$update['module_id']]);
+        return view('diapos.insert')->with('id', $update['diapo-id'])->with('module_id', $update['module_id'])->withErrors(['Error' => 'You have to put at least one answer at true']);
     }
 
     public function postInsertFromFormQuestion2(FormQuestion2Request $request)
