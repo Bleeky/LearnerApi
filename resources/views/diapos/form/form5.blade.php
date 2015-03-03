@@ -15,11 +15,6 @@
     </div>
 
     <div class="container">
-        @if ($diapo['content'][0]->img)
-            {!! HTML::image($diapo['content'][0]->img, null, (['class' => 'img-responsive img-rounded', 'style' =>
-            'max-height: 300px; margin-right: auto; margin-left: auto;'])) !!}
-        @endif
-
         {!! Form::open(['action'=>'DiapoEditAdminController@postUpdateForm5', 'id'=>'module-infos',
         'class'=>'admin-form', 'files'=>'true']) !!}
         {!! Form::hidden('diapo-id', $diapo['id']) !!}
@@ -33,11 +28,11 @@
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @endif
         </div>
-        <div class="form-group">
+        <div class="form-group" style="float: left;">
             <label>Diapo image</label>
             {!! Form::file('diapo-picture') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="float:left;">
             <label>Diapo text</label>
             @if ($diapo['content'][0]->data)
                 {!! Form::textarea('diapo-data', $diapo['content'][0]->data, array('class'=>'form-control',
@@ -47,6 +42,10 @@
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @endif
         </div>
+        @if ($diapo['content'][0]->img)
+            {!! HTML::image($diapo['content'][0]->img, null, (['class' => 'img-responsive img-rounded', 'style' =>
+            'max-height: 300px; margin-right: auto; margin-left: auto; float: left;'])) !!}
+        @endif
 
         {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>

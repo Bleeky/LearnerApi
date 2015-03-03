@@ -23,11 +23,11 @@
             {!! Form::text('diapo-title', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="float: left;">
             <label>Diapo image</label>
             {!! Form::file('diapo-picture') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="float: left;">
             <label>Diapo text</label>
             {!! Form::textarea('diapo-data', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
