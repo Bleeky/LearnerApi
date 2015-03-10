@@ -58,7 +58,7 @@
             @endif
         </div>
         <div class="form-group">
-            <label>Valuer du pas</label>
+            <label>Valeur du pas</label>
             @if ($diapo['content'][0]->range_step)
                 {!! Form::text('diapo-range_step', $diapo['content'][0]->range_step, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-range_step', 'autocomplete'=>'off')) !!}

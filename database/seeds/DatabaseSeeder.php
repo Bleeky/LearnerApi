@@ -69,7 +69,7 @@ class ModuleTableSeeder extends Seeder {
 		$d2->next_id = $d3->id;
 		$d2->save();
 
-		$d4 = Diapo::create(['content'   => '[{"type": "6", "question":"Combien de doigts avez-vous ?","responses" : [{"response": "2", "valid": "false"}, {"response": "3", "valid": "false"}, {"response": "4", "valid": "false"}, {"response": "5", "valid": "true"}]}]',
+		$d4 = Diapo::create(['content'   => '[{"type": "6","img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg", "question":"Combien de doigts avez-vous ?","responses" : [{"response": "2", "comment" : null,"valid": "false"}, {"response": "3","comment" : null, "valid": "false"}, {"response": "4","comment" : null, "valid": "false"}, {"response": "5","comment" : null, "valid": "true"}]}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d3->id,
 		]);
@@ -97,7 +97,7 @@ class ModuleTableSeeder extends Seeder {
 		$d6->next_id = $d7->id;
 		$d6->save();
 
-		$d8 = Diapo::create(['content'   => '[{"type": "7", "question":"Qui est francais ?","responses" : [{"response": "Barack Obama", "valid": "false"}, {"response": "Francois Hollande", "valid": "true"}, {"response": "Sadam Hussein", "valid": "false"}, {"response": "Jean-Claude Duss", "valid": "true"}]}]',
+		$d8 = Diapo::create(['content'   => '[{"type": "7", "img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg","question":"Qui est francais ?","responses" : [{"response": "Barack Obama", "comment" : null,"valid": "false"}, {"response": "Francois Hollande", "comment" : null,"valid": "true"}, {"response": "Sadam Hussein", "comment" : null,"valid": "false"}, {"response": "Jean-Claude Duss", "comment" : null,"valid": "true"}]}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d7->id,
 		]);

@@ -29,7 +29,7 @@ class LearnerTools {
 
 	public static function deleteOldPicture($current_content)
 	{
-		if ($current_content[0]->img != null)
+		if (!empty($current_content[0]->img))
 		{
 			$filename = explode('/', $current_content[0]->img);
 			if (File::exists('resources/diapos/' . end($filename)))

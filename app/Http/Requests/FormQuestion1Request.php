@@ -16,6 +16,7 @@ class FormQuestion1Request extends FormRequest {
             'diapo-response2'    => 'required',
             'diapo-response3'    => 'required',
             'diapo-response4'    => 'required',
+            'diapo-picture' => 'mimes:jpg,jpeg,png',
         ];
     }
 
