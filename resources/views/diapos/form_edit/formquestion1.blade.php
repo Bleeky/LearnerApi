@@ -24,6 +24,10 @@
             'autocomplete'=>'off', 'id'=>'diapo-question', 'autocomplete'=>'off')) !!}
         </div>
         <div class="form-group">
+            <label>Diapo image</label>
+            {!! Form::file('diapo-picture') !!}
+        </div>
+        <div class="form-group">
             <label>Réponse 1</label>
             {!! Form::text('diapo-response1', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-response1', 'autocomplete'=>'off')) !!}
