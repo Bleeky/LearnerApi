@@ -32,7 +32,10 @@
             {!! Form::textarea('diapo-data', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
         </div>
-
+        <div class="form-group">
+            <label>Diapo audio</label>
+            {!! Form::file('diapo-audio') !!}
+        </div>
         {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>
         'btn btn-success'])!!}

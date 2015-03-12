@@ -13,6 +13,8 @@ class LearnerTools {
 			"title"       => null,
 			"data"        => null,
 			"img"         => null,
+			"audio"       => null,
+			"video"       => null,
 			"question"    => null,
 			"response"    => null,
 			"range_begin" => null,
@@ -34,6 +36,16 @@ class LearnerTools {
 			$filename = explode('/', $current_content[0]->img);
 			if (File::exists('resources/diapos/' . end($filename)))
 				File::delete('resources/diapos/' . end($filename));
+		}
+	}
+
+	public static function deleteOldAudio($current_content)
+	{
+		if (!empty($current_content[0]->audio))
+		{
+			$filename = explode('/', $current_content[0]->audio);
+			if (File::exists('resources/audio/' . end($filename)))
+				File::delete('resources/audio/' . end($filename));
 		}
 	}
 
@@ -60,6 +72,16 @@ class LearnerTools {
 		$filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
 		$new_file->move('resources/diapos', $filename);
 		$new_json[0]['img'] = asset('resources/diapos/' . $filename);
+
+		return $new_json;
+	}
+
+	public static function updateAudio($update, $new_json)
+	{
+		$new_file = $update['diapo-audio'];
+		$filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
+		$new_file->move('resources/audio', $filename);
+		$new_json[0]['audio'] = asset('resources/audio/' . $filename);
 
 		return $new_json;
 	}

@@ -14,6 +14,7 @@ class Form3Request extends FormRequest {
 			'diapo-title'   => '',
 			'diapo-data'    => 'required',
 			'diapo-picture' => 'mimes:jpg,jpeg,png',
+			'diapo-audio'   => 'mimes:mp3',
 		];
 	}
 
