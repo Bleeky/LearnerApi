@@ -46,7 +46,10 @@
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @endif
         </div>
-
+        <div class="form-group" style="clear: both;">
+            <label>Diapo audio</label>
+            {!! Form::file('diapo-audio') !!}
+        </div>
         {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>
         'btn btn-success'])!!}

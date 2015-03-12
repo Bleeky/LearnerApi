@@ -105,6 +105,11 @@ class DiapoEditAdminController extends AdminController {
 		$new_json[0]['data'] = $update['diapo-data'];
 		$new_json[0]['img'] = $current_content[0]->img;
 
+		if (Input::hasFile('diapo-audio'))
+		{
+			Common\LearnerTools::deleteOldAudio($current_content);
+			$new_json = Common\LearnerTools::updateAudio($update, $new_json);
+		}
 		if (Input::hasFile('diapo-picture'))
 		{
 			Common\LearnerTools::deleteOldPicture($current_content);
@@ -127,6 +132,11 @@ class DiapoEditAdminController extends AdminController {
 		$new_json[0]['data'] = $update['diapo-data'];
 		$new_json[0]['img'] = $current_content[0]->img;
 
+		if (Input::hasFile('diapo-audio'))
+		{
+			Common\LearnerTools::deleteOldAudio($current_content);
+			$new_json = Common\LearnerTools::updateAudio($update, $new_json);
+		}
 		if (Input::hasFile('diapo-picture'))
 		{
 			Common\LearnerTools::deleteOldPicture($current_content);

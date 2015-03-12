@@ -46,6 +46,10 @@
             {!! HTML::image($diapo['content'][0]->img, null, (['class' => 'img-responsive img-rounded', 'style' =>
             'max-height: 300px; margin-right: auto; margin-left: auto; float: left;'])) !!}
         @endif
+        <div class="form-group" style="clear: both;">
+            <label>Diapo audio</label>
+            {!! Form::file('diapo-audio') !!}
+        </div>
 
         {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>
