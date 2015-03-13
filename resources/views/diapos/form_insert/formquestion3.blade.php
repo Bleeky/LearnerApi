@@ -15,7 +15,7 @@
     </div>
     <div class="container">
 
-        {!! Form::open(['action'=>'DiapoInsertAdminController@postInsertFromFormQuestion1', 'id'=>'module-infos',
+        {!! Form::open(['action'=>'DiapoInsertAdminController@postInsertFromFormQuestion3', 'id'=>'module-infos',
         'class'=>'admin-form', 'files'=>'true']) !!}
         {!! Form::hidden('diapo-id', $id) !!}
         {!! Form::hidden('module_id', $module_id) !!}

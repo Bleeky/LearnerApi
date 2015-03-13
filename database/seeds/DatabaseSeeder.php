@@ -97,7 +97,7 @@ class ModuleTableSeeder extends Seeder {
 		$d6->next_id = $d7->id;
 		$d6->save();
 
-		$d8 = Diapo::create(['content'   => '[{"type": "7", "video": null,"audio": null,"img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg","question":"Qui est francais ?","responses" : [{"response": "Barack Obama", "comment" : null,"valid": "false"}, {"response": "Francois Hollande", "comment" : null,"valid": "true"}, {"response": "Sadam Hussein", "comment" : null,"valid": "false"}, {"response": "Jean-Claude Duss", "comment" : null,"valid": "true"}]}]',
+		$d8 = Diapo::create(['content'   => '[{"type": "7", "video": null,"comment_true":null,"comment_false":null,"audio": null,"img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg","question":"Qui est francais ?","responses" : [{"response": "Barack Obama", "comment" : null,"valid": "false"}, {"response": "Francois Hollande", "comment" : null,"valid": "true"}, {"response": "Sadam Hussein", "comment" : null,"valid": "false"}, {"response": "Jean-Claude Duss", "comment" : null,"valid": "true"}]}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d7->id,
 		]);

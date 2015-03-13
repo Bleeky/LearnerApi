@@ -6,8 +6,15 @@
         @if ($elem[0]->question)
             Question : {!! $elem[0]->question !!}
         @endif
-        <br>
-        <br>
+        @if($elem[0]->img)
+            <br>
+            <div>
+                Image associée à la diapo :
+                {!! HTML::image($elem[0]->img, null, (['class' => 'img-responsive img-rounded', 'style'
+                => 'max-height: 150px; margin-right: auto; margin-left: auto;'])) !!}
+            </div>
+            <br>
+        @endif
         @if ($elem[0]->responses)
             <li>Reponse 1 : {!! $elem[0]->responses[0]->response !!}</li>
             <li>Reponse 2 : {!! $elem[0]->responses[1]->response !!}</li>
