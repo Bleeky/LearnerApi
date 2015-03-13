@@ -51,60 +51,60 @@ class ModuleTableSeeder extends Seeder {
 						'img'         => 'http://desktopbackgroundshq.com/backgrounds/animal-bird-animal-backgrounds-animal-bird-25907.jpg'
 		]);
 
-		$d1 = Diapo::create(['content'   => '[{"type":"9","title" : null,"data":"lol","video":"http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.mp4"}]',
+		$d1 = Diapo::create(['content'   => '[{"type":"9","title" : null,"data":"lol","video":"http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.mp4", "audio": null, "img": null}]',
 							 'module_id' => $m1->id,
 		]);
 
-		$d2 = Diapo::create(['content'   => '[{"type":"1","title" : null,"data":"Ceci est un petit test de texte qui doit etre affiche dans une diapo de type 1 qui comprend seulement du texte et un titre optionnel.", "img":""}]',
+		$d2 = Diapo::create(['content'   => '[{"type":"1","title" : null, "video": null, "audio":"http://ec12.cdn.cincopa.com/admiralbob77_-_Every_Hidden_Shelter.mp3?o=0&res=124&cdn=ec&p=y&pid=270978&ph3=5lk00djig1n52izpjwtddniotjtue3tl&d=AsDA7AQNWRAAg3OtAY5o0yK&as=mp3&range=yes","data":"Ceci est un petit test de texte qui doit etre affiche dans une diapo de type 1 qui comprend seulement du texte et un titre optionnel.", "img":""}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d1->id,
 		]);
 		$d1->next_id = $d2->id;
 		$d1->save();
 
-		$d3 = Diapo::create(['content'   => '[{"type":"3","title" : "Ceci est un titre optionel !","data":"Diapo de type 3, qui comprend une image et un petit texte, ici present.","img": "http://www.photosdanimaux.org/wp-content/uploads/2011/02/bebe-animaux-leblogdusniper-8.jpg"}]',
+		$d3 = Diapo::create(['content'   => '[{"type":"3","title" : "Ceci est un titre optionel !", "video": null,"audio":"http://ec12.cdn.cincopa.com/admiralbob77_-_Every_Hidden_Shelter.mp3?o=0&res=124&cdn=ec&p=y&pid=270978&ph3=5lk00djig1n52izpjwtddniotjtue3tl&d=AsDA7AQNWRAAg3OtAY5o0yK&as=mp3&range=yes","data":"Diapo de type 3, qui comprend une image et un petit texte, ici present.","img": "http://www.photosdanimaux.org/wp-content/uploads/2011/02/bebe-animaux-leblogdusniper-8.jpg"}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d2->id,
 		]);
 		$d2->next_id = $d3->id;
 		$d2->save();
 
-		$d4 = Diapo::create(['content'   => '[{"type": "6","img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg", "question":"Combien de doigts avez-vous ?","responses" : [{"response": "2", "comment" : null,"valid": "false"}, {"response": "3","comment" : null, "valid": "false"}, {"response": "4","comment" : null, "valid": "false"}, {"response": "5","comment" : null, "valid": "true"}]}]',
+		$d4 = Diapo::create(['content'   => '[{"type": "6", "audio": null,"video": null,"img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg", "question":"Combien de doigts avez-vous ?","responses" : [{"response": "2", "comment" : null,"valid": "false"}, {"response": "3","comment" : null, "valid": "false"}, {"response": "4","comment" : null, "valid": "false"}, {"response": "5","comment" : null, "valid": "true"}]}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d3->id,
 		]);
 		$d3->next_id = $d4->id;
 		$d3->save();
 
-		$d5 = Diapo::create(['content'   => '[{"type":"5","title" : null,"data":"L\'image doit etre a droite ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper.","img": "http://images.fanpop.com/images/image_uploads/animals--the-animal-kingdom-248730_1024_768.jpg"}]',
+		$d5 = Diapo::create(['content'   => '[{"type":"5", "video": null,"title" : null, "audio":"http://ec12.cdn.cincopa.com/admiralbob77_-_Every_Hidden_Shelter.mp3?o=0&res=124&cdn=ec&p=y&pid=270978&ph3=5lk00djig1n52izpjwtddniotjtue3tl&d=AsDA7AQNWRAAg3OtAY5o0yK&as=mp3&range=yes","data":"L\'image doit etre a droite ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper.","img": "http://images.fanpop.com/images/image_uploads/animals--the-animal-kingdom-248730_1024_768.jpg"}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d4->id,
 		]);
 		$d4->next_id = $d5->id;
 		$d4->save();
 
-		$d6 = Diapo::create(['content'   => '[{"type": "8", "question":"Combien de jours dans la semaine ?","range_begin" : "1", "range_end": "7", "range_step": "1", "response" : "7"}]',
+		$d6 = Diapo::create(['content'   => '[{"type": "8", "video": null,"audio": null,"question":"Combien de jours dans la semaine ?","range_begin" : "1", "range_end": "7", "range_step": "1", "response" : "7"}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d5->id,
 		]);
 		$d5->next_id = $d6->id;
 		$d5->save();
 
-		$d7 = Diapo::create(['content'   => '[{"type":"4","title" : null,"data":"L\'image doit etre a gauche ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper.","img": "http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg"}]',
+		$d7 = Diapo::create(['content'   => '[{"type":"4","video": null,"title" : null, "audio":"http://ec12.cdn.cincopa.com/admiralbob77_-_Every_Hidden_Shelter.mp3?o=0&res=124&cdn=ec&p=y&pid=270978&ph3=5lk00djig1n52izpjwtddniotjtue3tl&d=AsDA7AQNWRAAg3OtAY5o0yK&as=mp3&range=yes","data":"L\'image doit etre a gauche ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend gravida arcu, et semper.","img": "http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg"}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d6->id,
 		]);
 		$d6->next_id = $d7->id;
 		$d6->save();
 
-		$d8 = Diapo::create(['content'   => '[{"type": "7", "img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg","question":"Qui est francais ?","responses" : [{"response": "Barack Obama", "comment" : null,"valid": "false"}, {"response": "Francois Hollande", "comment" : null,"valid": "true"}, {"response": "Sadam Hussein", "comment" : null,"valid": "false"}, {"response": "Jean-Claude Duss", "comment" : null,"valid": "true"}]}]',
+		$d8 = Diapo::create(['content'   => '[{"type": "7", "video": null,"audio": null,"img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg","question":"Qui est francais ?","responses" : [{"response": "Barack Obama", "comment" : null,"valid": "false"}, {"response": "Francois Hollande", "comment" : null,"valid": "true"}, {"response": "Sadam Hussein", "comment" : null,"valid": "false"}, {"response": "Jean-Claude Duss", "comment" : null,"valid": "true"}]}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d7->id,
 		]);
 		$d7->next_id = $d8->id;
 		$d7->save();
 
-		$d9 = Diapo::create(['content'   => '[{"type":"1","title" : null,"data":"Ceci est un petit test de texte qui doit etre affiche dans une diapo de type 1 qui comprend seulement du texte et un titre optionnel.", "img":""}]',
+		$d9 = Diapo::create(['content'   => '[{"type":"1", "video": null,"title" : null, "audio":"http://ec12.cdn.cincopa.com/admiralbob77_-_Every_Hidden_Shelter.mp3?o=0&res=124&cdn=ec&p=y&pid=270978&ph3=5lk00djig1n52izpjwtddniotjtue3tl&d=AsDA7AQNWRAAg3OtAY5o0yK&as=mp3&range=yes","data":"Ceci est un petit test de texte qui doit etre affiche dans une diapo de type 1 qui comprend seulement du texte et un titre optionnel.", "img":""}]',
 							 'module_id' => $m1->id,
 							 'prev_id'   => $d8->id,
 		]);

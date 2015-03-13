@@ -18,9 +18,17 @@
             <span>{!! $elem[0]->data!!}</span>
             <br>
         @endif
-        <a style="text-decoration: none;" class="btn btn-warning"
-           href="{{ URL::action('DiapoAdminController@getEditDiapo', [$elem['id']]) }}">Éditer</a>
-        <a style="text-decoration: none;" class="btn btn-danger"
-           href="{{ URL::action('DiapoAdminController@getDeleteDiapo', [$elem['id']]) }}">Supprimer</a>
+        @if($elem[0]->audio)
+            <audio controls>
+                <source src="{!! $elem[0]->audio !!}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        @endif
+        <div>
+            <a style="text-decoration: none;" class="btn btn-warning"
+               href="{{ URL::action('DiapoAdminController@getEditDiapo', [$elem['id']]) }}">Éditer</a>
+            <a style="text-decoration: none;" class="btn btn-danger"
+               href="{{ URL::action('DiapoAdminController@getDeleteDiapo', [$elem['id']]) }}">Supprimer</a>
+        </div>
     </div>
 </div>
