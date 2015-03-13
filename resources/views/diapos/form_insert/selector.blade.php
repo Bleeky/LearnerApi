@@ -27,6 +27,7 @@
                 <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.form5', $id, $module_id]) }}">5</option>
                 <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.formquestion1',$id, $module_id]) }}">6/7</option>
                 <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.formquestion2',$id, $module_id]) }}">8</option>
+                <option value="{{ URL::action('DiapoInsertAdminController@getInsertToForm', ['diapos.form_insert.formvideo',$id, $module_id]) }}">9</option>
             </select>
         </div>
     </div>

@@ -10,6 +10,7 @@ use LearnerApi\Http\Requests\Form2InsertRequest;
 use LearnerApi\Http\Requests\Form3InsertRequest;
 use LearnerApi\Http\Requests\FormQuestion1Request;
 use LearnerApi\Http\Requests\FormQuestion2Request;
+use LearnerApi\Http\Requests\FormVideoInsertRequest;
 use LearnerApi\Module;
 use LearnerApi\Common;
 
@@ -414,6 +415,50 @@ class DiapoInsertAdminController extends AdminController {
 		}
 		$elem->save();
 
+		return Redirect::action('DiapoAdminController@getHome', ['id' => $update['module_id']]);
+	}
+	public function postInsertFromFormVideo(FormVideoInsertRequest $request)
+	{
+		$update = $request->all();
+		$new_json = Common\LearnerTools::getJson();
+		$new_json[0]['type'] = '9';
+		$new_json[0]['title'] = $update['diapo-title'];
+		$new_json = Common\LearnerTools::updateVideo($update, $new_json);
+		$diapos = Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
+		$new_json = json_encode($new_json);
+		$elem = new Diapo();
+		$elem->content = $new_json;
+		$elem->module()->associate(Module::find($update['module_id']));
+		$elem->save();
+		if ($update['diapo-id'] == "0")
+		{
+			foreach ($diapos as $diapo)
+			{
+				$elem->prev_id = null;
+				$elem->next_id = $diapo->id;
+				$diapo->prev_id = $elem->id;
+				$diapo->save();
+			}
+		}
+		else
+		{
+			$insert_after = Diapo::find($update['diapo-id']);
+			if (!empty($insert_after))
+			{
+				$insert_before = Diapo::find($insert_after->next_id);
+				$insert_after->next_id = $elem->id;
+				$elem->prev_id = $insert_after->id;
+				$elem->next_id = null;
+				if (!empty($insert_before))
+				{
+					$elem->next_id = $insert_before->id;
+					$insert_before->prev_id = $elem->id;
+					$insert_before->save();
+				}
+				$insert_after->save();
+			}
+		}
+		$elem->save();
 		return Redirect::action('DiapoAdminController@getHome', ['id' => $update['module_id']]);
 	}
 }
