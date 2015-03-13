@@ -9,6 +9,7 @@ use LearnerApi\Http\Requests\Form3Request;
 use LearnerApi\Http\Requests\FormQuestion1Request;
 use LearnerApi\Http\Requests\FormQuestion2Request;
 use LearnerApi\Common;
+use LearnerApi\Http\Requests\FormVideoRequest;
 
 class DiapoEditAdminController extends AdminController {
 
@@ -26,7 +27,6 @@ class DiapoEditAdminController extends AdminController {
 		$update = $request->all();
 		$old_diapo = Diapo::find($update['diapo-id']);
 		$current_content = json_decode($old_diapo->content);
-
 		$new_json = Common\LearnerTools::getJson();
 		$new_json[0]['type'] = '1';
 		$new_json[0]['title'] = $update['diapo-title'];
@@ -235,6 +235,26 @@ class DiapoEditAdminController extends AdminController {
 
 		Common\LearnerTools::deleteOldPicture($current_content);
 
+		Common\LearnerTools::updateDiapoContent($old_diapo, $new_json);
+		$diapo_data = Common\LearnerTools::getDiapoData($old_diapo);
+
+		return view('diapos.edit')->with('diapo', $diapo_data)->withErrors(['success' => 'Diapo updated with success.']);
+	}
+	public function postUpdateFormVideo(FormVideoRequest $request)
+	{
+		$update = $request->all();
+		$old_diapo = Diapo::find($update['diapo-id']);
+		$current_content = json_decode($old_diapo->content);
+		$new_json = Common\LearnerTools::getJson();
+		$new_json[0]['type'] = '9';
+		$new_json[0]['title'] = $update['diapo-title'];
+		$new_json[0]['video'] = $current_content[0]->video;
+
+		if (Input::hasFile('diapo-video'))
+		{
+			Common\LearnerTools::deleteOldVideo($current_content);
+			$new_json = Common\LearnerTools::updateVideo($update, $new_json);
+		}
 		Common\LearnerTools::updateDiapoContent($old_diapo, $new_json);
 		$diapo_data = Common\LearnerTools::getDiapoData($old_diapo);
 

@@ -16,5 +16,7 @@
         @include('diapos.form.formquestion1')
     @elseif($diapo['content'][0]->type == "8")
         @include('diapos.form.formquestion2')
+    @elseif($diapo['content'][0]->type == "9")
+        @include('diapos.form.formvideo')
     @endif
 @stop

@@ -51,7 +51,7 @@ class ModuleTableSeeder extends Seeder {
 						'img'         => 'http://desktopbackgroundshq.com/backgrounds/animal-bird-animal-backgrounds-animal-bird-25907.jpg'
 		]);
 
-		$d1 = Diapo::create(['content'   => '[{"type":"2","title" : null,"img": "https://pbs.twimg.com/profile_images/378800000831249044/effb57c08b2f5783c686b589d84d2b92.jpeg", "data":""}]',
+		$d1 = Diapo::create(['content'   => '[{"type":"9","title" : null,"data":"lol","video":"http://www.supportduweb.com/page/media/videoTag/BigBuckBunny.mp4"}]',
 							 'module_id' => $m1->id,
 		]);
 

@@ -4,12 +4,10 @@ namespace LearnerApi\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
 use LearnerApi\Diapo;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Input;
 use LearnerApi\Http\Requests\Form1Request;
-use LearnerApi\Http\Requests\Form2Request;
 use LearnerApi\Http\Requests\Form2InsertRequest;
 use LearnerApi\Http\Requests\Form3InsertRequest;
-use LearnerApi\Http\Requests\Form3Request;
 use LearnerApi\Http\Requests\FormQuestion1Request;
 use LearnerApi\Http\Requests\FormQuestion2Request;
 use LearnerApi\Module;

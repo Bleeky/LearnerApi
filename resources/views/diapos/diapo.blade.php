@@ -29,6 +29,8 @@
                         @include('diapos.type.type7')
                     @elseif($elem[0]->type == "8")
                         @include('diapos.type.type8')
+                    @elseif($elem[0]->type == "9")
+                        @include('diapos.type.type9')
                     @endif
                 @endif
                 @if (!empty($elem)  && !empty($elem['id']))

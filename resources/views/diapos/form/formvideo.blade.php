@@ -13,10 +13,9 @@
         @endif
 
     </div>
-
     <div class="container">
 
-        {!! Form::open(['action'=>'DiapoEditAdminController@postUpdateForm1', 'id'=>'module-infos',
+        {!! Form::open(['action'=>'DiapoEditAdminController@postUpdateFormVideo', 'id'=>'module-infos',
         'class'=>'admin-form', 'files'=>'true']) !!}
         {!! Form::hidden('diapo-id', $diapo['id']) !!}
         <div class="form-group">
@@ -28,20 +27,18 @@
                 {!! Form::text('diapo-title', null, array('class'=>'form-control',
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @endif
-        </div>
-        <div class="form-group">
-            <label>Diapo text</label>
-            @if ($diapo['content'][0]->data)
-                {!! Form::textarea('diapo-data', $diapo['content'][0]->data, array('class'=>'form-control',
-                'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
-            @else
-                {!! Form::textarea('diapo-data', null, array('class'=>'form-control',
-                'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
+            @if ($diapo['content'][0]->video)
+                <video id="example_video_1" class="video-js vjs-big-play-centered vjs-default-skin"
+                       controls preload="auto" width="640" height="264"
+                       data-setup='{"example_option":true}'>
+                    <source src="{!! $diapo['content'][0]->video !!}" type='video/mp4'/>
+                </video>
             @endif
-        </div>
-        <div class="form-group">
-            <label>Diapo audio</label>
-            {!! Form::file('diapo-audio') !!}
+            <div class="form-group">
+                <label>Video</label>
+                {!! Form::file('diapo-video') !!}
+            </div>
+
         </div>
         {!! Form::submit('Update informations', ['id'=>'update-diapo-button', 'name'=>'update-module-button', 'class'
         =>
