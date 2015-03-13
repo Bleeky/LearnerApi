@@ -30,6 +30,8 @@ class DiapoInsertAdminController extends AdminController {
 		$new_json[0]['title'] = $update['diapo-title'];
 		$new_json[0]['data'] = $update['diapo-data'];
 
+		$new_json = Common\LearnerTools::updateAudio($update, $new_json);
+
 		$diapos = Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
 		$new_json = json_encode($new_json);
 		$elem = new Diapo();
@@ -124,6 +126,7 @@ class DiapoInsertAdminController extends AdminController {
 		$new_json[0]['data'] = $update['diapo-data'];
 
 		$new_json = Common\LearnerTools::updatePicture($update, $new_json);
+		$new_json = Common\LearnerTools::updateAudio($update, $new_json);
 
 		$diapos = Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
 		$new_json = json_encode($new_json);
@@ -173,6 +176,7 @@ class DiapoInsertAdminController extends AdminController {
 		$new_json[0]['data'] = $update['diapo-data'];
 
 		$new_json = Common\LearnerTools::updatePicture($update, $new_json);
+		$new_json = Common\LearnerTools::updateAudio($update, $new_json);
 
 		$diapos = Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
 		$new_json = json_encode($new_json);
@@ -222,6 +226,7 @@ class DiapoInsertAdminController extends AdminController {
 		$new_json[0]['data'] = $update['diapo-data'];
 
 		$new_json = Common\LearnerTools::updatePicture($update, $new_json);
+		$new_json = Common\LearnerTools::updateAudio($update, $new_json);
 
 		$diapos = Diapo::where("module_id", "=", $update['module_id'])->where("prev_id", "=", null)->get();
 		$new_json = json_encode($new_json);
