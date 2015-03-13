@@ -23,7 +23,9 @@ class LearnerTools {
 			"responses"   =>
 				[
 					null
-				]
+				],
+			"comment_true" => null,
+			"comment_false" => null
 		]];
 
 		return $new_json;

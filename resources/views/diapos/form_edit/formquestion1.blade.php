@@ -31,6 +31,9 @@
             <label>Réponse 1</label>
             {!! Form::text('diapo-response1', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-response1', 'autocomplete'=>'off')) !!}
+            <label>Commentaire</label>
+            {!! Form::text('diapo-comment1', null, array('class'=>'form-control',
+            'autocomplete'=>'off', 'id'=>'diapo-comment1', 'autocomplete'=>'off')) !!}
             {!! Form::select('select-response1',['true' => 'vrai', 'false' => 'faux'] , 'false',
             array('class'=>'form-control',
             'id'=>'select-response1')) !!}
@@ -39,6 +42,9 @@
             <label>Réponse 2</label>
             {!! Form::text('diapo-response2', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-reponse2', 'autocomplete'=>'off')) !!}
+            <label>Commentaire</label>
+            {!! Form::text('diapo-comment2', null, array('class'=>'form-control',
+            'autocomplete'=>'off', 'id'=>'diapo-comment2', 'autocomplete'=>'off')) !!}
             {!! Form::select('select-response2',['true' => 'vrai', 'false' => 'faux'] , 'false',
             array('class'=>'form-control',
             'id'=>'select-response2')) !!}
@@ -47,6 +53,9 @@
             <label>Réponse 3</label>
             {!! Form::text('diapo-response3', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-response3', 'autocomplete'=>'off')) !!}
+            <label>Commentaire</label>
+            {!! Form::text('diapo-comment3', null, array('class'=>'form-control',
+            'autocomplete'=>'off', 'id'=>'diapo-comment3', 'autocomplete'=>'off')) !!}
             {!! Form::select('select-response3',['true' => 'vrai', 'false' => 'faux'] , 'false',
             array('class'=>'form-control',
             'id'=>'select-response3')) !!}
@@ -55,6 +64,9 @@
             <label>Réponse 4</label>
             {!! Form::text('diapo-response4', null, array('class'=>'form-control',
             'autocomplete'=>'off', 'id'=>'diapo-response4', 'autocomplete'=>'off')) !!}
+            <label>Commentaire</label>
+            {!! Form::text('diapo-comment4', null, array('class'=>'form-control',
+            'autocomplete'=>'off', 'id'=>'diapo-comment4', 'autocomplete'=>'off')) !!}
             {!! Form::select('select-response4',['true' => 'vrai', 'false' => 'faux'] , 'false',
             array('class'=>'form-control',
             'id'=>'select-response4')) !!}
