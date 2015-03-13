@@ -46,6 +46,12 @@
                 'autocomplete'=>'off', 'id'=>'diapo-name', 'autocomplete'=>'off')) !!}
             @endif
         </div>
+        @if($diapo['content'][0]->audio)
+            <audio controls>
+                <source src="{!! $diapo['content'][0]->audio !!}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        @endif
         <div class="form-group" style="clear: both;">
             <label>Diapo audio</label>
             {!! Form::file('diapo-audio') !!}
