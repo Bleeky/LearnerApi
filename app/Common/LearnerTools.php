@@ -101,10 +101,14 @@ class LearnerTools {
 
 	public static function updateAudio($update, $new_json)
 	{
-		$new_file = $update['diapo-audio'];
-		$filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
-		$new_file->move('resources/audio', $filename);
-		$new_json[0]['audio'] = asset('resources/audio/' . $filename);
+		if (!empty($update['diapo-audio']))
+		{
+			$new_file = $update['diapo-audio'];
+			$filename = Str::random($length = 30) . '.' . $new_file->getClientOriginalExtension();
+			$new_file->move('resources/audio', $filename);
+			$new_json[0]['audio'] = asset('resources/audio/' . $filename);
+
+		}
 
 		return $new_json;
 	}
